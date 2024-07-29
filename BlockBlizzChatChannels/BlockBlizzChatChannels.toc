@@ -1,0 +1,20 @@
+## Interface: 110000, 110002, 40400, 11503
+## Title: Block Blizzard Chat Channels
+## Version: 1.0.0
+## Notes: Prevent all characters on your account from joining various default chat channels. /blockchatchannels
+## Author: ConineSpiritwolf
+## SavedVariables: BlockBlizzChatChannelsData, Prat-3.0
+## DefaultState: enabled
+
+## X-Category: HUDs
+## X-Website: https://github.com/NinerBull/BlockBlizzChatChannels
+## X-Curse-Project-ID: xxxxx
+## X-WoWI-ID: xxxxx
+## X-Wago-ID: xxxxxx
+
+## IconTexture: interface\icons\ui_chat.blp
+## AddonCompartmentFunc: BlockBlizzChatChannels_CompartmentClick
+## AddonCompartmentFuncOnEnter: BlockBlizzChatChannels_CompartmentHover
+## AddonCompartmentFuncOnLeave: BlockBlizzChatChannels_CompartmentLeave
+
+BlockBlizzChatChannels.lua
