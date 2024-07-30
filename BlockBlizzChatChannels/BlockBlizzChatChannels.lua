@@ -58,13 +58,13 @@ BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, ar
 
 
 				do
-					layout:AddInitializer(CreateSettingsListSectionHeaderInitializer("Select Channels to Block Below", "All characters on your account will be prevented from joining the channels you check below.\n\nYou will need to manually rejoin these channels if you change your mind later on.\n\nChanges take effect the next time you change zone, or relog or type the /reload command."));
+					layout:AddInitializer(CreateSettingsListSectionHeaderInitializer("Select Channels to Block Below", "All characters on your account will be prevented from joining the channels you check below.\n\nYou will need to manually rejoin these channels if you change your mind later on.\n\nChanges take effect immediately."));
 				end
 
 				do
 					local variable = "BlockGeneral"
 					local name = "Block General Chat"
-					local tooltip = "Checking this box will prevent all of your characters from joining the General Chat Channel.\nThis is the zone-wide public chat channel, and even works in instances."
+					local tooltip = "Checking this box will prevent all of your characters from joining the General Chat Channel.\n\nThis is the zone-wide public chat channel, and even works in instances."
 					local defaultValue = false
 
 					local setting = Settings.RegisterAddOnSetting(category, name, variable, type(defaultValue), (BlockBlizzChatChannelsData[variable] or defaultValue))
@@ -162,7 +162,7 @@ BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, ar
 				do
 					local variable = "BlockLookingForGroup"
 					local name = "Block LookingForGroup Chat"
-					local tooltip = "Checking this box will prevent all of your characters from joining the LookingForGroup Chat Channel.\n\nThis channel is realm-wide. It's meant to help find groups for content, and can see heavy use on Cataclysm and Era Realms.\n\nLeaving this channel won't prevent you from using the Dungeon/Raid/Group Finders in Retail/Cataclysm, but addons such as 'LFG Group Bulletin Board' rely on being in the channel to work."
+					local tooltip = "Checking this box will prevent all of your characters from joining the LookingForGroup Chat Channel.\n\nThis channel is realm-wide. It's meant to help find groups for content, and can see heavy use on Cataclysm and Era Realms.\n\nLeaving this channel won't prevent you from using the Dungeon/Raid/Group Finders in Retail/Cataclysm, but addons such as 'LFG Group Bulletin Board' can read this channel to parse text for data, therefore it is not recommended to block this channel if you use such an addon."
 					local defaultValue = false
 
 					local setting = Settings.RegisterAddOnSetting(category, name, variable, type(defaultValue), (BlockBlizzChatChannelsData[variable] or defaultValue))
