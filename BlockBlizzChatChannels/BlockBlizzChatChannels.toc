@@ -6,8 +6,11 @@
 ## SavedVariables: BlockBlizzChatChannelsData, Prat-3.0
 ## DefaultState: enabled
 
-## X-Category: HUDs
+## X-Category: Chat/Communication
 ## X-Website: https://github.com/NinerBull/BlockBlizzChatChannels
+## X-Curse-Project-ID: 1074598
+## X-WoWI-ID: 26788
+## X-Wago-ID: kNMdwOGz
 
 ## IconTexture: interface\icons\ui_chat.blp
 ## AddonCompartmentFunc: BlockBlizzChatChannels_CompartmentClick

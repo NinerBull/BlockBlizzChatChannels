@@ -1,6 +1,7 @@
 # Block Blizzard Chat Channels
-
 An addon for World of Warcraft - The War Within, Cataclysm Classic and Classic Era!
+
+![Info Img](https://cdn-wow.mmoui.com/preview/pvw76390.jpg)
 
 ## About
 This addon allows you to prevent all of your characters on your account from joining any (or all) of the following Channels:
@@ -17,6 +18,16 @@ This addon allows you to prevent all of your characters on your account from joi
 * **The War Within** - 11.0.0
 * **Cataclysm Classic** - 4.4.0
 * **Classic Era** - 1.15.3
+
+
+## Installation
+Download the latest version from one of the places below, and unzip it in your `<warcraft>\<_version_>\Interface\Addons` folder if installing manually.
+
+* [CurseForge](https://www.curseforge.com/wow/addons/block-blizzard-chat-channels)
+* [WoWInterface](https://www.wowinterface.com/downloads/info26788-BlockBlizzardChatChannels.html)
+* [Wago](https://addons.wago.io/addons/blockblizzchatchannels/)
+* [GitHub](https://github.com/NinerBull/BlockBlizzChatChannels/releases/latest)
+* Or put `https://github.com/NinerBull/BlockBlizzChatChannels` into your favourite Addon Manager
 
 
 ## Configuration
