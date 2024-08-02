@@ -2,10 +2,7 @@
 local BlockBlizzChatChannels_Frame = CreateFrame("Frame")
 
 BlockBlizzChatChannels_Frame:RegisterEvent("CHANNEL_UI_UPDATE")
-BlockBlizzChatChannels_Frame:RegisterEvent("PLAYER_ENTERING_WORLD")
-BlockBlizzChatChannels_Frame:RegisterEvent("SETTINGS_LOADED")
 BlockBlizzChatChannels_Frame:RegisterEvent("ADDON_LOADED")
-BlockBlizzChatChannels_Frame:RegisterEvent("CHANNEL_UI_UPDATE")
 
 
 local BlockBlizzChatChannels_TextName = FRIENDLY_STATUS_COLOR:WrapTextInColorCode("<Block Blizzard Chat Channels>")
@@ -20,14 +17,6 @@ local function OnSettingChanged(_, setting, value)
 	BlockBlizzChatChannelsData[variable] = value
 	BlockBlizzChatChannels_Frame.CheckForChatBlock()
 end
-
-
-
-
-
-
-
-
 
 
 
@@ -183,13 +172,23 @@ BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, ar
 				do
 					local function OnButtonClick()
 						JoinPermanentChannel("General")
+						ChatFrame_AddChannel(DEFAULT_CHAT_FRAME, "General")
+						
 						JoinPermanentChannel("LocalDefense")
+						ChatFrame_AddChannel(DEFAULT_CHAT_FRAME, "LocalDefense")
+						
 						JoinPermanentChannel("Trade")
+						ChatFrame_AddChannel(DEFAULT_CHAT_FRAME, "Trade")
+						
 						JoinPermanentChannel("LookingForGroup")
+						ChatFrame_AddChannel(DEFAULT_CHAT_FRAME, "LookingForGroup")
+						
 						if (WOW_PROJECT_ID == WOW_PROJECT_MAINLINE) then
 							JoinPermanentChannel("Services")
+							ChatFrame_AddChannel(DEFAULT_CHAT_FRAME, "Services")
 						else
 							JoinPermanentChannel("WorldDefense")
+							ChatFrame_AddChannel(DEFAULT_CHAT_FRAME, "WorldDefense")
 						end
 						BlockBlizzChatChannels_Frame.CheckForChatBlock()
 						print(BlockBlizzChatChannels_TextName .. " Rejoined all channels, where possible.")
