@@ -15,7 +15,7 @@ This addon allows you to prevent all of your characters on your account from joi
 
 
 ## Compatibility
-* **The War Within** - 11.0.0
+* **The War Within** - 11.0.2
 * **Cataclysm Classic** - 4.4.0
 * **Classic Era** - 1.15.3
 
@@ -31,7 +31,7 @@ Download the latest version from one of the places below, and unzip it in your `
 
 
 ## Configuration
-**You can configure the addon by typing `/blockchatchannels` into chat, or from the 'Block Blizzard Chat Channels' section of the Game Options.**
+**You can configure the addon by typing `/blockblizzchatchannels` into chat, or from the 'Block Blizzard Chat Channels' section of the Game Options.**
 
 **By default, no chat channels are blocked**, and you'll need to configure the addon to block only the channels you do not want to see.
 Ticking a box will take effect immediately, and will affect all of your characters account wide.
