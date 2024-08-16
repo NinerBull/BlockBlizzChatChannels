@@ -84,7 +84,7 @@ BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, ar
 				local variable = "BlockServices"
 				local name = "Block Services Chat"
 				local tooltip = "Checking this box will prevent all of your characters from joining the Services Chat Channel.\n\nThis channel was introduced in 9.2.7 and is accessible in major cities.\n\nIt is mostly used by players selling Raid/M+/PVP Boosting/Carrying services and the like, and it can get extremely spammy on some populated realms."
-				local defaultValue = false
+				local defaultValue = true
 				local setting = nil
 
 				if (WOW_PROJECT_ID == WOW_PROJECT_MAINLINE) then
