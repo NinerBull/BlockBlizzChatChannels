@@ -1,6 +1,6 @@
-## Interface: 110002, 40400, 11503
+## Interface: 110002, 110005, 40400, 40401, 11504
 ## Title: Block Blizzard Chat Channels
-## Version: 1.0.3
+## Version: 1.0.4
 ## Notes: Prevent all characters on your account from joining various default chat channels. /blockblizzchatchannels
 ## Author: ConineSpiritwolf
 ## SavedVariables: BlockBlizzChatChannelsData

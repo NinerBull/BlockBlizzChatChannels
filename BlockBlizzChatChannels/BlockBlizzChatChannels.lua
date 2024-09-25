@@ -20,6 +20,16 @@ local function OnSettingChanged(_, setting, value)
 	BlockBlizzChatChannels_Frame.CheckForChatBlock()
 end
 
+
+BlockBlizzChatChannels_UseNewRegisterSetting = true
+
+if ((select(4, GetBuildInfo())) == 40400) then
+	BlockBlizzChatChannels_UseNewRegisterSetting = false
+end
+
+
+
+
 BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, arg2)
 
 	if (event == "ADDON_LOADED" and arg1 == "BlockBlizzChatChannels") then
@@ -47,7 +57,7 @@ BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, ar
 			local defaultValue = false
 			local setting = nil
 			
-			if (WOW_PROJECT_ID == WOW_PROJECT_MAINLINE) then
+			if (BlockBlizzChatChannels_UseNewRegisterSetting == true) then
 				-- New Style of Tickbox
 				setting = Settings.RegisterAddOnSetting(category, variable, variable, BlockBlizzChatChannelsData, type(defaultValue), name, (BlockBlizzChatChannelsData[variable] or defaultValue))
 			else
@@ -56,7 +66,12 @@ BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, ar
 			end
 			
 			Settings.SetOnValueChangedCallback(variable, OnSettingChanged)
-			Settings.CreateCheckbox(category, setting, tooltip)
+			
+			if (BlockBlizzChatChannels_UseNewRegisterSetting == true) then
+				Settings.CreateCheckbox(category, setting, tooltip)
+			else
+				Settings.CreateCheckBox(category, setting, tooltip)
+			end
 		end
 
 		do
@@ -66,7 +81,7 @@ BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, ar
 			local defaultValue = false
 			local setting = nil
 
-			if (WOW_PROJECT_ID == WOW_PROJECT_MAINLINE) then
+			if (BlockBlizzChatChannels_UseNewRegisterSetting == true) then
 				-- New Style of Tickbox
 				setting = Settings.RegisterAddOnSetting(category, variable, variable, BlockBlizzChatChannelsData, type(defaultValue), name, (BlockBlizzChatChannelsData[variable] or defaultValue))
 			else
@@ -75,7 +90,12 @@ BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, ar
 			end
 			
 			Settings.SetOnValueChangedCallback(variable, OnSettingChanged)
-			Settings.CreateCheckbox(category, setting, tooltip)
+			
+			if (BlockBlizzChatChannels_UseNewRegisterSetting == true) then
+				Settings.CreateCheckbox(category, setting, tooltip)
+			else
+				Settings.CreateCheckBox(category, setting, tooltip)
+			end
 		end
 
 		-- Services channel only exists in Retail
@@ -87,7 +107,7 @@ BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, ar
 				local defaultValue = true
 				local setting = nil
 
-				if (WOW_PROJECT_ID == WOW_PROJECT_MAINLINE) then
+				if (BlockBlizzChatChannels_UseNewRegisterSetting == true) then
 					-- New Style of Tickbox
 					setting = Settings.RegisterAddOnSetting(category, variable, variable, BlockBlizzChatChannelsData, type(defaultValue), name, (BlockBlizzChatChannelsData[variable] or defaultValue))
 				else
@@ -96,7 +116,12 @@ BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, ar
 				end
 				
 				Settings.SetOnValueChangedCallback(variable, OnSettingChanged)
-				Settings.CreateCheckbox(category, setting, tooltip)
+				
+				if (BlockBlizzChatChannels_UseNewRegisterSetting == true) then
+					Settings.CreateCheckbox(category, setting, tooltip)
+				else
+					Settings.CreateCheckBox(category, setting, tooltip)
+				end
 			end
 		end
 		
@@ -107,7 +132,7 @@ BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, ar
 			local defaultValue = false
 			local setting = nil
 
-			if (WOW_PROJECT_ID == WOW_PROJECT_MAINLINE) then
+			if (BlockBlizzChatChannels_UseNewRegisterSetting == true) then
 				-- New Style of Tickbox
 				setting = Settings.RegisterAddOnSetting(category, variable, variable, BlockBlizzChatChannelsData, type(defaultValue), name, (BlockBlizzChatChannelsData[variable] or defaultValue))
 			else
@@ -116,7 +141,12 @@ BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, ar
 			end
 			
 			Settings.SetOnValueChangedCallback(variable, OnSettingChanged)
-			Settings.CreateCheckbox(category, setting, tooltip)
+			
+			if (BlockBlizzChatChannels_UseNewRegisterSetting == true) then
+				Settings.CreateCheckbox(category, setting, tooltip)
+			else
+				Settings.CreateCheckBox(category, setting, tooltip)
+			end
 		end
 		
 		-- WorldDefense channel is only in Classic
@@ -128,7 +158,7 @@ BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, ar
 				local defaultValue = false
 				local setting = nil
 
-				if (WOW_PROJECT_ID == WOW_PROJECT_MAINLINE) then
+				if (BlockBlizzChatChannels_UseNewRegisterSetting == true) then
 					-- New Style of Tickbox
 					setting = Settings.RegisterAddOnSetting(category, variable, variable, BlockBlizzChatChannelsData, type(defaultValue), name, (BlockBlizzChatChannelsData[variable] or defaultValue))
 				else
@@ -137,7 +167,12 @@ BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, ar
 				end
 				
 				Settings.SetOnValueChangedCallback(variable, OnSettingChanged)
-				Settings.CreateCheckbox(category, setting, tooltip)
+				
+				if (BlockBlizzChatChannels_UseNewRegisterSetting == true) then
+					Settings.CreateCheckbox(category, setting, tooltip)
+				else
+					Settings.CreateCheckBox(category, setting, tooltip)
+				end
 			end
 		end
 		
@@ -148,7 +183,7 @@ BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, ar
 			local defaultValue = false
 			local setting = nil
 
-			if (WOW_PROJECT_ID == WOW_PROJECT_MAINLINE) then
+			if (BlockBlizzChatChannels_UseNewRegisterSetting == true) then
 				-- New Style of Tickbox
 				setting = Settings.RegisterAddOnSetting(category, variable, variable, BlockBlizzChatChannelsData, type(defaultValue), name, (BlockBlizzChatChannelsData[variable] or defaultValue))
 			else
@@ -157,7 +192,12 @@ BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, ar
 			end
 			
 			Settings.SetOnValueChangedCallback(variable, OnSettingChanged)
-			Settings.CreateCheckbox(category, setting, tooltip)
+			
+			if (BlockBlizzChatChannels_UseNewRegisterSetting == true) then
+				Settings.CreateCheckbox(category, setting, tooltip)
+			else
+				Settings.CreateCheckBox(category, setting, tooltip)
+			end
 		end
 		
 		do
