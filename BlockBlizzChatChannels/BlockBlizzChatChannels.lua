@@ -54,11 +54,7 @@ BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, ar
 		
 			Settings.SetOnValueChangedCallback(variable, OnSettingChanged)
 			
-			if (BlockBlizzChatChannels_UseNewRegisterSetting == true) then
-				Settings.CreateCheckbox(category, setting, tooltip)
-			else
-				Settings.CreateCheckBox(category, setting, tooltip)
-			end
+			Settings.CreateCheckbox(category, setting, tooltip)
 		end
 
 		do
@@ -72,11 +68,7 @@ BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, ar
 			
 			Settings.SetOnValueChangedCallback(variable, OnSettingChanged)
 			
-			if (BlockBlizzChatChannels_UseNewRegisterSetting == true) then
-				Settings.CreateCheckbox(category, setting, tooltip)
-			else
-				Settings.CreateCheckBox(category, setting, tooltip)
-			end
+			Settings.CreateCheckbox(category, setting, tooltip)
 		end
 
 		-- Services channel only exists in Retail and 20th Anniversary Classic Era
@@ -97,11 +89,7 @@ BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, ar
 				
 				Settings.SetOnValueChangedCallback(variable, OnSettingChanged)
 				
-				if (BlockBlizzChatChannels_UseNewRegisterSetting == true) then
-					Settings.CreateCheckbox(category, setting, tooltip)
-				else
-					Settings.CreateCheckBox(category, setting, tooltip)
-				end
+				Settings.CreateCheckbox(category, setting, tooltip)
 			end
 		end
 		
@@ -116,11 +104,7 @@ BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, ar
 			
 			Settings.SetOnValueChangedCallback(variable, OnSettingChanged)
 			
-			if (BlockBlizzChatChannels_UseNewRegisterSetting == true) then
-				Settings.CreateCheckbox(category, setting, tooltip)
-			else
-				Settings.CreateCheckBox(category, setting, tooltip)
-			end
+			Settings.CreateCheckbox(category, setting, tooltip)
 		end
 		
 		-- WorldDefense channel is only in Classic
@@ -157,11 +141,7 @@ BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, ar
 			
 			Settings.SetOnValueChangedCallback(variable, OnSettingChanged)
 			
-			if (BlockBlizzChatChannels_UseNewRegisterSetting == true) then
-				Settings.CreateCheckbox(category, setting, tooltip)
-			else
-				Settings.CreateCheckBox(category, setting, tooltip)
-			end
+			Settings.CreateCheckbox(category, setting, tooltip)
 		end
 		
 		do
