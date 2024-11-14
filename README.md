@@ -6,7 +6,7 @@ An addon for World of Warcraft - The War Within, Cataclysm Classic and Classic E
 ## About
 This addon allows you to prevent all of your characters on your account from joining any (or all) of the following Channels:
 
-* Services Chat (Retail Only, Blocked by Default)
+* Services Chat (Blocked by Default in Retail)
 * General Chat
 * Trade Chat
 * LocalDefense Chat
@@ -15,9 +15,9 @@ This addon allows you to prevent all of your characters on your account from joi
 
 
 ## Compatibility
-* **The War Within** - 11.0.2 & 11.0.5
-* **Cataclysm Classic** - 4.4.0 & 4.4.1
-* **Classic Era** - 1.15.4
+* **The War Within** - 11.0.5 & 11.0.7
+* **Cataclysm Classic** - 4.4.1
+* **Classic Era** - 1.15.5
 
 
 ## Installation

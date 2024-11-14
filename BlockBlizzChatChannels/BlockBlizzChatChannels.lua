@@ -21,13 +21,6 @@ local function OnSettingChanged(_, setting, value)
 end
 
 
-BlockBlizzChatChannels_UseNewRegisterSetting = true
-
-if ((select(4, GetBuildInfo())) == 40400) then
-	BlockBlizzChatChannels_UseNewRegisterSetting = false
-end
-
-
 
 
 BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, arg2)
@@ -56,15 +49,9 @@ BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, ar
 			local tooltip = "Checking this box will prevent all of your characters from joining the General Chat Channel.\n\nThis is the zone-wide public chat channel, and even works in instances."
 			local defaultValue = false
 			local setting = nil
-			
-			if (BlockBlizzChatChannels_UseNewRegisterSetting == true) then
-				-- New Style of Tickbox
-				setting = Settings.RegisterAddOnSetting(category, variable, variable, BlockBlizzChatChannelsData, type(defaultValue), name, (BlockBlizzChatChannelsData[variable] or defaultValue))
-			else
-				-- For Classic, will need to edit this in future most likely
-				setting = Settings.RegisterAddOnSetting(category, name, variable, type(defaultValue), (BlockBlizzChatChannelsData[variable] or defaultValue))
-			end
-			
+		
+			setting = Settings.RegisterAddOnSetting(category, variable, variable, BlockBlizzChatChannelsData, type(defaultValue), name, (BlockBlizzChatChannelsData[variable] or defaultValue))
+		
 			Settings.SetOnValueChangedCallback(variable, OnSettingChanged)
 			
 			if (BlockBlizzChatChannels_UseNewRegisterSetting == true) then
@@ -77,17 +64,11 @@ BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, ar
 		do
 			local variable = "BlockTrade"
 			local name = "Block Trade Chat"
-			local tooltip = "Checking this box will prevent all of your characters from joining the Trade Chat Channel.\n\nThis channel is accessible in all major cities, and discussions can often fill the chat box very quickly during peak hours on populated realms."
+			local tooltip = "Checking this box will prevent all of your characters from joining the Trade Chat Channel."
 			local defaultValue = false
 			local setting = nil
 
-			if (BlockBlizzChatChannels_UseNewRegisterSetting == true) then
-				-- New Style of Tickbox
-				setting = Settings.RegisterAddOnSetting(category, variable, variable, BlockBlizzChatChannelsData, type(defaultValue), name, (BlockBlizzChatChannelsData[variable] or defaultValue))
-			else
-				-- For Classic, will need to edit this in future most likely
-				setting = Settings.RegisterAddOnSetting(category, name, variable, type(defaultValue), (BlockBlizzChatChannelsData[variable] or defaultValue))
-			end
+			setting = Settings.RegisterAddOnSetting(category, variable, variable, BlockBlizzChatChannelsData, type(defaultValue), name, (BlockBlizzChatChannelsData[variable] or defaultValue))
 			
 			Settings.SetOnValueChangedCallback(variable, OnSettingChanged)
 			
@@ -98,22 +79,21 @@ BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, ar
 			end
 		end
 
-		-- Services channel only exists in Retail
-		if (WOW_PROJECT_ID == WOW_PROJECT_MAINLINE) then
+		-- Services channel only exists in Retail and 20th Anniversary Classic Era
+		if (WOW_PROJECT_ID == WOW_PROJECT_MAINLINE or WOW_PROJECT_ID == WOW_PROJECT_CLASSIC) then
 			do
 				local variable = "BlockServices"
 				local name = "Block Services Chat"
-				local tooltip = "Checking this box will prevent all of your characters from joining the Services Chat Channel.\n\nThis channel was introduced in 9.2.7 and is accessible in major cities.\n\nIt is mostly used by players selling Raid/M+/PVP Boosting/Carrying services and the like, and it can get extremely spammy on some populated realms."
-				local defaultValue = true
+				local tooltip = "Checking this box will prevent all of your characters from joining the Services Chat Channel."
+				local defaultValue = false
 				local setting = nil
-
-				if (BlockBlizzChatChannels_UseNewRegisterSetting == true) then
-					-- New Style of Tickbox
-					setting = Settings.RegisterAddOnSetting(category, variable, variable, BlockBlizzChatChannelsData, type(defaultValue), name, (BlockBlizzChatChannelsData[variable] or defaultValue))
-				else
-					-- For Classic, will need to edit this in future most likely
-					setting = Settings.RegisterAddOnSetting(category, name, variable, type(defaultValue), (BlockBlizzChatChannelsData[variable] or defaultValue))
+				
+				if (WOW_PROJECT_ID == WOW_PROJECT_MAINLINE) then
+					defaultValue = true
 				end
+
+				setting = Settings.RegisterAddOnSetting(category, variable, variable, BlockBlizzChatChannelsData, type(defaultValue), name, (BlockBlizzChatChannelsData[variable] or defaultValue))
+				
 				
 				Settings.SetOnValueChangedCallback(variable, OnSettingChanged)
 				
@@ -128,17 +108,11 @@ BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, ar
 		do
 			local variable = "BlockLocalDefense"
 			local name = "Block LocalDefense Chat"
-			local tooltip = "Checking this box will prevent all of your characters from joining the LocalDefense Chat Channel.\n\nThis channel is zone-wide, and will show 'X is under attack!' notices when a friendly NPC is killed by the opposite faction, which could get spammy in War Mode/PVP Realms."
+			local tooltip = "Checking this box will prevent all of your characters from joining the LocalDefense Chat Channel."
 			local defaultValue = false
 			local setting = nil
 
-			if (BlockBlizzChatChannels_UseNewRegisterSetting == true) then
-				-- New Style of Tickbox
-				setting = Settings.RegisterAddOnSetting(category, variable, variable, BlockBlizzChatChannelsData, type(defaultValue), name, (BlockBlizzChatChannelsData[variable] or defaultValue))
-			else
-				-- For Classic, will need to edit this in future most likely
-				setting = Settings.RegisterAddOnSetting(category, name, variable, type(defaultValue), (BlockBlizzChatChannelsData[variable] or defaultValue))
-			end
+			setting = Settings.RegisterAddOnSetting(category, variable, variable, BlockBlizzChatChannelsData, type(defaultValue), name, (BlockBlizzChatChannelsData[variable] or defaultValue))
 			
 			Settings.SetOnValueChangedCallback(variable, OnSettingChanged)
 			
@@ -154,17 +128,11 @@ BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, ar
 			do
 				local variable = "BlockWorldDefense"
 				local name = "Block WorldDefense Chat"
-				local tooltip = "Checking this box will prevent all of your characters from joining the WorldDefense Chat Channel.\n\nSimiar to LocalDefense, except it will show attack notices for the entire world, rather than just the zone you are in."
+				local tooltip = "Checking this box will prevent all of your characters from joining the WorldDefense Chat Channel."
 				local defaultValue = false
 				local setting = nil
 
-				if (BlockBlizzChatChannels_UseNewRegisterSetting == true) then
-					-- New Style of Tickbox
-					setting = Settings.RegisterAddOnSetting(category, variable, variable, BlockBlizzChatChannelsData, type(defaultValue), name, (BlockBlizzChatChannelsData[variable] or defaultValue))
-				else
-					-- For Classic, will need to edit this in future most likely
-					setting = Settings.RegisterAddOnSetting(category, name, variable, type(defaultValue), (BlockBlizzChatChannelsData[variable] or defaultValue))
-				end
+				setting = Settings.RegisterAddOnSetting(category, variable, variable, BlockBlizzChatChannelsData, type(defaultValue), name, (BlockBlizzChatChannelsData[variable] or defaultValue))
 				
 				Settings.SetOnValueChangedCallback(variable, OnSettingChanged)
 				
@@ -179,17 +147,13 @@ BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, ar
 		do
 			local variable = "BlockLookingForGroup"
 			local name = "Block LookingForGroup Chat"
-			local tooltip = "Checking this box will prevent all of your characters from joining the LookingForGroup Chat Channel.\n\nThis channel is realm-wide. It's meant to help find groups for content, and can see heavy use on Cataclysm and Era Realms.\n\nLeaving this channel won't prevent you from using the Dungeon/Raid/Group Finders in Retail/Cataclysm, but addons such as 'LFG Group Bulletin Board' can read this channel to parse text for data, therefore it is not recommended to block this channel if you use such an addon."
+			local tooltip = "Checking this box will prevent all of your characters from joining the LookingForGroup Chat Channel."
 			local defaultValue = false
 			local setting = nil
 
-			if (BlockBlizzChatChannels_UseNewRegisterSetting == true) then
-				-- New Style of Tickbox
-				setting = Settings.RegisterAddOnSetting(category, variable, variable, BlockBlizzChatChannelsData, type(defaultValue), name, (BlockBlizzChatChannelsData[variable] or defaultValue))
-			else
-				-- For Classic, will need to edit this in future most likely
-				setting = Settings.RegisterAddOnSetting(category, name, variable, type(defaultValue), (BlockBlizzChatChannelsData[variable] or defaultValue))
-			end
+
+			setting = Settings.RegisterAddOnSetting(category, variable, variable, BlockBlizzChatChannelsData, type(defaultValue), name, (BlockBlizzChatChannelsData[variable] or defaultValue))
+			
 			
 			Settings.SetOnValueChangedCallback(variable, OnSettingChanged)
 			
@@ -220,13 +184,16 @@ BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, ar
 				JoinPermanentChannel("LookingForGroup")
 				ChatFrame_AddChannel(DEFAULT_CHAT_FRAME, "LookingForGroup")
 				
-				if (WOW_PROJECT_ID == WOW_PROJECT_MAINLINE) then
+				if (WOW_PROJECT_ID == WOW_PROJECT_MAINLINE or WOW_PROJECT_ID == WOW_PROJECT_CLASSIC) then
 					JoinPermanentChannel("Services")
 					ChatFrame_AddChannel(DEFAULT_CHAT_FRAME, "Services")
-				else
+				end
+				
+				if (WOW_PROJECT_ID ~= WOW_PROJECT_MAINLINE) then
 					JoinPermanentChannel("WorldDefense")
 					ChatFrame_AddChannel(DEFAULT_CHAT_FRAME, "WorldDefense")
 				end
+				
 				BlockBlizzChatChannels_Frame.CheckForChatBlock()
 				print(BlockBlizzChatChannels_TextName .. " Rejoined all channels, where possible.")
 			end
@@ -287,7 +254,7 @@ function BlockBlizzChatChannels_Frame:CheckForChatBlock()
 		end
 	end
 	
-	if (WOW_PROJECT_ID == WOW_PROJECT_MAINLINE) then
+	if (WOW_PROJECT_ID == WOW_PROJECT_MAINLINE or WOW_PROJECT_ID == WOW_PROJECT_CLASSIC) then
 		if (BlockBlizzChatChannelsData["BlockServices"] == true) then
 			if (GetChannelName((GetChannelName("Services"))) > 0) then
 				LeaveChannelByName("Services")
