@@ -46,7 +46,7 @@ BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, ar
 		do
 			local variable = "BlockGeneral"
 			local name = "Block General Chat"
-			local tooltip = "Checking this box will prevent all of your characters from joining the General Chat Channel.\n\nThis is the zone-wide public chat channel, and even works in instances."
+			local tooltip = "Checking this box will prevent all of your characters from joining the General Chat Channel."
 			local defaultValue = false
 			local setting = nil
 		
@@ -55,6 +55,7 @@ BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, ar
 			Settings.SetOnValueChangedCallback(variable, OnSettingChanged)
 			
 			Settings.CreateCheckbox(category, setting, tooltip)
+
 		end
 
 		do
@@ -120,11 +121,7 @@ BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, ar
 				
 				Settings.SetOnValueChangedCallback(variable, OnSettingChanged)
 				
-				if (BlockBlizzChatChannels_UseNewRegisterSetting == true) then
-					Settings.CreateCheckbox(category, setting, tooltip)
-				else
-					Settings.CreateCheckBox(category, setting, tooltip)
-				end
+				Settings.CreateCheckbox(category, setting, tooltip)
 			end
 		end
 		
