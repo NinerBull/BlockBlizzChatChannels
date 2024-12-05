@@ -23,6 +23,50 @@ end
 
 
 
+BlockBlizzChatChannels_ChatName_General = "General"
+BlockBlizzChatChannels_ChatName_Trade = "Trade"
+BlockBlizzChatChannels_ChatName_Services = "Services"
+BlockBlizzChatChannels_ChatName_LocalDefense = "LocalDefense"
+BlockBlizzChatChannels_ChatName_WorldDefense = "WorldDefense"
+BlockBlizzChatChannels_ChatName_LookingForGroup = "LookingForGroup"
+
+
+-- https://wago.tools/db2/ChatChannels
+
+if (WOW_PROJECT_ID == WOW_PROJECT_MAINLINE) then
+
+	BlockBlizzChatChannels_ChatName_General = C_ChatInfo.GetChannelShortcutForChannelID(1)
+	BlockBlizzChatChannels_ChatName_Trade = C_ChatInfo.GetChannelShortcutForChannelID(2)
+	BlockBlizzChatChannels_ChatName_Services = C_ChatInfo.GetChannelShortcutForChannelID(42)
+	BlockBlizzChatChannels_ChatName_LocalDefense = C_ChatInfo.GetChannelShortcutForChannelID(22)
+	BlockBlizzChatChannels_ChatName_LookingForGroup = C_ChatInfo.GetChannelShortcutForChannelID(26)
+
+end
+
+
+if (WOW_PROJECT_ID == WOW_PROJECT_CATACLYSM_CLASSIC or WOW_PROJECT_ID == WOW_PROJECT_WRATH_CLASSIC or WOW_PROJECT_ID == WOW_PROJECT_BURNING_CRUSADE_CLASSIC) then
+
+	BlockBlizzChatChannels_ChatName_General = C_ChatInfo.GetChannelShortcutForChannelID(1)
+	BlockBlizzChatChannels_ChatName_Trade = C_ChatInfo.GetChannelShortcutForChannelID(2)
+	BlockBlizzChatChannels_ChatName_LocalDefense = C_ChatInfo.GetChannelShortcutForChannelID(22)
+	BlockBlizzChatChannels_ChatName_WorldDefense = C_ChatInfo.GetChannelShortcutForChannelID(23)
+	BlockBlizzChatChannels_ChatName_LookingForGroup = C_ChatInfo.GetChannelShortcutForChannelID(26)
+
+end
+
+
+if (WOW_PROJECT_ID == WOW_PROJECT_CLASSIC) then
+
+	BlockBlizzChatChannels_ChatName_General = C_ChatInfo.GetChannelShortcutForChannelID(1)
+	BlockBlizzChatChannels_ChatName_Trade = C_ChatInfo.GetChannelShortcutForChannelID(2)
+	BlockBlizzChatChannels_ChatName_Services = C_ChatInfo.GetChannelShortcutForChannelID(45)
+	BlockBlizzChatChannels_ChatName_LocalDefense = C_ChatInfo.GetChannelShortcutForChannelID(22)
+	BlockBlizzChatChannels_ChatName_WorldDefense = C_ChatInfo.GetChannelShortcutForChannelID(23)
+	BlockBlizzChatChannels_ChatName_LookingForGroup = C_ChatInfo.GetChannelShortcutForChannelID(24)
+
+end
+
+
 BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, arg2)
 
 	if (event == "ADDON_LOADED" and arg1 == "BlockBlizzChatChannels") then
@@ -45,8 +89,8 @@ BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, ar
 
 		do
 			local variable = "BlockGeneral"
-			local name = "Block General Chat"
-			local tooltip = "Checking this box will prevent all of your characters from joining the General Chat Channel."
+			local name = "Block " .. BlockBlizzChatChannels_ChatName_General .. " Chat"
+			local tooltip = "Checking this box will prevent all of your characters from joining the " .. BlockBlizzChatChannels_ChatName_General .. " Chat Channel."
 			local defaultValue = false
 			local setting = nil
 		
@@ -60,8 +104,8 @@ BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, ar
 
 		do
 			local variable = "BlockTrade"
-			local name = "Block Trade Chat"
-			local tooltip = "Checking this box will prevent all of your characters from joining the Trade Chat Channel."
+			local name = "Block " .. BlockBlizzChatChannels_ChatName_Trade .. " Chat"
+			local tooltip = "Checking this box will prevent all of your characters from joining the " .. BlockBlizzChatChannels_ChatName_Trade .. " Chat Channel."
 			local defaultValue = false
 			local setting = nil
 
@@ -76,8 +120,8 @@ BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, ar
 		if (WOW_PROJECT_ID == WOW_PROJECT_MAINLINE or WOW_PROJECT_ID == WOW_PROJECT_CLASSIC) then
 			do
 				local variable = "BlockServices"
-				local name = "Block Services Chat"
-				local tooltip = "Checking this box will prevent all of your characters from joining the Services Chat Channel."
+				local name = "Block " .. BlockBlizzChatChannels_ChatName_Services .. " Chat"
+				local tooltip = "Checking this box will prevent all of your characters from joining the " .. BlockBlizzChatChannels_ChatName_Services .. " Chat Channel."
 				local defaultValue = false
 				local setting = nil
 				
@@ -96,8 +140,8 @@ BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, ar
 		
 		do
 			local variable = "BlockLocalDefense"
-			local name = "Block LocalDefense Chat"
-			local tooltip = "Checking this box will prevent all of your characters from joining the LocalDefense Chat Channel."
+			local name = "Block " .. BlockBlizzChatChannels_ChatName_LocalDefense .. " Chat"
+			local tooltip = "Checking this box will prevent all of your characters from joining the " .. BlockBlizzChatChannels_ChatName_LocalDefense .. " Chat Channel."
 			local defaultValue = false
 			local setting = nil
 
@@ -112,8 +156,8 @@ BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, ar
 		if (WOW_PROJECT_ID ~= WOW_PROJECT_MAINLINE) then
 			do
 				local variable = "BlockWorldDefense"
-				local name = "Block WorldDefense Chat"
-				local tooltip = "Checking this box will prevent all of your characters from joining the WorldDefense Chat Channel."
+				local name = "Block " .. BlockBlizzChatChannels_ChatName_WorldDefense .. " Chat"
+				local tooltip = "Checking this box will prevent all of your characters from joining the " .. BlockBlizzChatChannels_ChatName_WorldDefense .. " Chat Channel."
 				local defaultValue = false
 				local setting = nil
 
@@ -127,8 +171,8 @@ BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, ar
 		
 		do
 			local variable = "BlockLookingForGroup"
-			local name = "Block LookingForGroup Chat"
-			local tooltip = "Checking this box will prevent all of your characters from joining the LookingForGroup Chat Channel."
+			local name = "Block " .. BlockBlizzChatChannels_ChatName_LookingForGroup .. " Chat"
+			local tooltip = "Checking this box will prevent all of your characters from joining the " .. BlockBlizzChatChannels_ChatName_LookingForGroup .. " Chat Channel."
 			local defaultValue = false
 			local setting = nil
 
@@ -149,26 +193,26 @@ BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, ar
 		-- Join button will try to join all the channels below. It'll auto kick us out of channels we don't wanna be in.
 		do
 			local function OnButtonClick()
-				JoinPermanentChannel("General")
-				ChatFrame_AddChannel(DEFAULT_CHAT_FRAME, "General")
+				JoinPermanentChannel(BlockBlizzChatChannels_ChatName_General)
+				ChatFrame_AddChannel(DEFAULT_CHAT_FRAME, BlockBlizzChatChannels_ChatName_General)
 				
-				JoinPermanentChannel("LocalDefense")
-				ChatFrame_AddChannel(DEFAULT_CHAT_FRAME, "LocalDefense")
+				JoinPermanentChannel(BlockBlizzChatChannels_ChatName_LocalDefense)
+				ChatFrame_AddChannel(DEFAULT_CHAT_FRAME, BlockBlizzChatChannels_ChatName_LocalDefense)
 				
-				JoinPermanentChannel("Trade")
-				ChatFrame_AddChannel(DEFAULT_CHAT_FRAME, "Trade")
+				JoinPermanentChannel(BlockBlizzChatChannels_ChatName_Trade)
+				ChatFrame_AddChannel(DEFAULT_CHAT_FRAME, BlockBlizzChatChannels_ChatName_Trade)
 				
-				JoinPermanentChannel("LookingForGroup")
-				ChatFrame_AddChannel(DEFAULT_CHAT_FRAME, "LookingForGroup")
+				JoinPermanentChannel(BlockBlizzChatChannels_ChatName_LookingForGroup)
+				ChatFrame_AddChannel(DEFAULT_CHAT_FRAME, BlockBlizzChatChannels_ChatName_LookingForGroup)
 				
 				if (WOW_PROJECT_ID == WOW_PROJECT_MAINLINE or WOW_PROJECT_ID == WOW_PROJECT_CLASSIC) then
-					JoinPermanentChannel("Services")
-					ChatFrame_AddChannel(DEFAULT_CHAT_FRAME, "Services")
+					JoinPermanentChannel(BlockBlizzChatChannels_ChatName_Services)
+					ChatFrame_AddChannel(DEFAULT_CHAT_FRAME, BlockBlizzChatChannels_ChatName_Services)
 				end
 				
 				if (WOW_PROJECT_ID ~= WOW_PROJECT_MAINLINE) then
-					JoinPermanentChannel("WorldDefense")
-					ChatFrame_AddChannel(DEFAULT_CHAT_FRAME, "WorldDefense")
+					JoinPermanentChannel(BlockBlizzChatChannels_ChatName_WorldDefense)
+					ChatFrame_AddChannel(DEFAULT_CHAT_FRAME, BlockBlizzChatChannels_ChatName_WorldDefense)
 				end
 				
 				BlockBlizzChatChannels_Frame.CheckForChatBlock()
@@ -200,41 +244,41 @@ end)
 function BlockBlizzChatChannels_Frame:CheckForChatBlock()
 
 	if (BlockBlizzChatChannelsData["BlockGeneral"] == true) then
-		if (GetChannelName((GetChannelName("General"))) > 0) then
-			LeaveChannelByName("General")
+		if (GetChannelName((GetChannelName(BlockBlizzChatChannels_ChatName_General))) > 0) then
+			LeaveChannelByName(BlockBlizzChatChannels_ChatName_General)
 		end
 	end
 	
 	if (BlockBlizzChatChannelsData["BlockLocalDefense"] == true) then
-		if (GetChannelName((GetChannelName("LocalDefense"))) > 0) then
-			LeaveChannelByName("LocalDefense")
+		if (GetChannelName((GetChannelName(BlockBlizzChatChannels_ChatName_LocalDefense))) > 0) then
+			LeaveChannelByName(BlockBlizzChatChannels_ChatName_LocalDefense)
 		end
 	end
 	
 	if (BlockBlizzChatChannelsData["BlockTrade"] == true) then
-		if (GetChannelName((GetChannelName("Trade"))) > 0) then
-			LeaveChannelByName("Trade")
+		if (GetChannelName((GetChannelName(BlockBlizzChatChannels_ChatName_Trade))) > 0) then
+			LeaveChannelByName(BlockBlizzChatChannels_ChatName_Trade)
 		end
 	end
 	
 	if (BlockBlizzChatChannelsData["BlockLookingForGroup"] == true) then
-		if (GetChannelName((GetChannelName("LookingForGroup"))) > 0) then
-			LeaveChannelByName("LookingForGroup")
+		if (GetChannelName((GetChannelName(BlockBlizzChatChannels_ChatName_LookingForGroup))) > 0) then
+			LeaveChannelByName(BlockBlizzChatChannels_ChatName_LookingForGroup)
 		end
 	end
 	
 	if (WOW_PROJECT_ID ~= WOW_PROJECT_MAINLINE) then
 		if (BlockBlizzChatChannelsData["BlockWorldDefense"] == true) then
-			if (GetChannelName((GetChannelName("WorldDefense"))) > 0) then
-				LeaveChannelByName("WorldDefense")
+			if (GetChannelName((GetChannelName(BlockBlizzChatChannels_ChatName_WorldDefense))) > 0) then
+				LeaveChannelByName(BlockBlizzChatChannels_ChatName_WorldDefense)
 			end
 		end
 	end
 	
 	if (WOW_PROJECT_ID == WOW_PROJECT_MAINLINE or WOW_PROJECT_ID == WOW_PROJECT_CLASSIC) then
 		if (BlockBlizzChatChannelsData["BlockServices"] == true) then
-			if (GetChannelName((GetChannelName("Services"))) > 0) then
-				LeaveChannelByName("Services")
+			if (GetChannelName((GetChannelName(BlockBlizzChatChannels_ChatName_Services))) > 0) then
+				LeaveChannelByName(BlockBlizzChatChannels_ChatName_Services)
 			end
 		end
 	end
@@ -275,21 +319,21 @@ function BlockBlizzChatChannels_CompartmentHover(addonName, buttonName)
 	BlockBlizzChatChannels_Tooltip:AddLine("Current Settings:",  WHITE_FONT_COLOR.r, WHITE_FONT_COLOR.g, WHITE_FONT_COLOR.b)
 	BlockBlizzChatChannels_Tooltip:AddLine(" ")
 	
-	BlockBlizzChatChannels_Tooltip:AddDoubleLine("Blocking General Chat" .. ":", BlockBlizzChatChannels_Frame:IsChatBlockActive("BlockGeneral"), nil, nil, nil,  WHITE_FONT_COLOR.r, WHITE_FONT_COLOR.g, WHITE_FONT_COLOR.b)
+	BlockBlizzChatChannels_Tooltip:AddDoubleLine("Blocking " .. BlockBlizzChatChannels_ChatName_General .. " Chat" .. ":", BlockBlizzChatChannels_Frame:IsChatBlockActive("BlockGeneral"), nil, nil, nil,  WHITE_FONT_COLOR.r, WHITE_FONT_COLOR.g, WHITE_FONT_COLOR.b)
 	
-	BlockBlizzChatChannels_Tooltip:AddDoubleLine("Blocking Trade Chat" .. ":", BlockBlizzChatChannels_Frame:IsChatBlockActive("BlockTrade"), nil, nil, nil,  WHITE_FONT_COLOR.r, WHITE_FONT_COLOR.g, WHITE_FONT_COLOR.b)
+	BlockBlizzChatChannels_Tooltip:AddDoubleLine("Blocking " .. BlockBlizzChatChannels_ChatName_Trade .. " Chat" .. ":", BlockBlizzChatChannels_Frame:IsChatBlockActive("BlockTrade"), nil, nil, nil,  WHITE_FONT_COLOR.r, WHITE_FONT_COLOR.g, WHITE_FONT_COLOR.b)
 	
 	if (WOW_PROJECT_ID == WOW_PROJECT_MAINLINE) then
-		BlockBlizzChatChannels_Tooltip:AddDoubleLine("Blocking Services Chat" .. ":", BlockBlizzChatChannels_Frame:IsChatBlockActive("BlockServices"), nil, nil, nil,  WHITE_FONT_COLOR.r, WHITE_FONT_COLOR.g, WHITE_FONT_COLOR.b)
+		BlockBlizzChatChannels_Tooltip:AddDoubleLine("Blocking " .. BlockBlizzChatChannels_ChatName_Services .. " Chat" .. ":", BlockBlizzChatChannels_Frame:IsChatBlockActive("BlockServices"), nil, nil, nil,  WHITE_FONT_COLOR.r, WHITE_FONT_COLOR.g, WHITE_FONT_COLOR.b)
 	end
 	
-	BlockBlizzChatChannels_Tooltip:AddDoubleLine("Blocking LocalDefense Chat" .. ":", BlockBlizzChatChannels_Frame:IsChatBlockActive("BlockLocalDefense"), nil, nil, nil,  WHITE_FONT_COLOR.r, WHITE_FONT_COLOR.g, WHITE_FONT_COLOR.b)
+	BlockBlizzChatChannels_Tooltip:AddDoubleLine("Blocking " .. BlockBlizzChatChannels_ChatName_LocalDefense .. " Chat" .. ":", BlockBlizzChatChannels_Frame:IsChatBlockActive("BlockLocalDefense"), nil, nil, nil,  WHITE_FONT_COLOR.r, WHITE_FONT_COLOR.g, WHITE_FONT_COLOR.b)
 	
 	if (WOW_PROJECT_ID ~= WOW_PROJECT_MAINLINE) then
-		BlockBlizzChatChannels_Tooltip:AddDoubleLine("Blocking WorldDefense Chat" .. ":", BlockBlizzChatChannels_Frame:IsChatBlockActive("BlockWorldDefense"), nil, nil, nil,  WHITE_FONT_COLOR.r, WHITE_FONT_COLOR.g, WHITE_FONT_COLOR.b)
+		BlockBlizzChatChannels_Tooltip:AddDoubleLine("Blocking " .. BlockBlizzChatChannels_ChatName_WorldDefense .. " Chat" .. ":", BlockBlizzChatChannels_Frame:IsChatBlockActive("BlockWorldDefense"), nil, nil, nil,  WHITE_FONT_COLOR.r, WHITE_FONT_COLOR.g, WHITE_FONT_COLOR.b)
 	end
 	
-	BlockBlizzChatChannels_Tooltip:AddDoubleLine("Blocking LookingForGroup Chat" .. ":", BlockBlizzChatChannels_Frame:IsChatBlockActive("BlockLookingForGroup"), nil, nil, nil,  WHITE_FONT_COLOR.r, WHITE_FONT_COLOR.g, WHITE_FONT_COLOR.b)
+	BlockBlizzChatChannels_Tooltip:AddDoubleLine("Blocking " .. BlockBlizzChatChannels_ChatName_LookingForGroup .. " Chat" .. ":", BlockBlizzChatChannels_Frame:IsChatBlockActive("BlockLookingForGroup"), nil, nil, nil,  WHITE_FONT_COLOR.r, WHITE_FONT_COLOR.g, WHITE_FONT_COLOR.b)
 	
 	BlockBlizzChatChannels_Tooltip:AddLine(" ")
 	BlockBlizzChatChannels_Tooltip:AddLine("Click to change settings.",  GREEN_FONT_COLOR.r, GREEN_FONT_COLOR.g, GREEN_FONT_COLOR.b)
