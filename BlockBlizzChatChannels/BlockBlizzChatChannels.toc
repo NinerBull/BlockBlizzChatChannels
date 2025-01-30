@@ -1,6 +1,6 @@
-## Interface: 110007, 40401, 11505, 11506
+## Interface: 110007, 110100, 40401, 40402, 11506
 ## Title: Block Blizzard Chat Channels
-## Version: 1.0.6
+## Version: 1.0.7
 ## Notes: Prevent all characters on your account from joining various default chat channels. /blockblizzchatchannels
 ## Author: ConineSpiritwolf
 ## SavedVariables: BlockBlizzChatChannelsData
@@ -11,6 +11,19 @@
 ## X-Curse-Project-ID: 1074598
 ## X-WoWI-ID: 26788
 ## X-Wago-ID: kNMdwOGz
+
+## Category: Chat
+## Category-enUS: Chat
+## Category-deDE: Chat
+## Category-esES: Chat
+## Category-esMX: Chat
+## Category-frFR: Discussion
+## Category-itIT: Chat
+## Category-koKR: 대화
+## Category-ptBR: Bate-papo
+## Category-ruRU: Чат
+## Category-zhCN: 聊天
+## Category-zhTW: 對話
 
 ## IconTexture: interface\icons\ui_chat.blp
 ## AddonCompartmentFunc: BlockBlizzChatChannels_CompartmentClick

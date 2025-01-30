@@ -31,6 +31,9 @@ BlockBlizzChatChannels_ChatName_Services = "Services"
 BlockBlizzChatChannels_ChatName_LocalDefense = "LocalDefense"
 BlockBlizzChatChannels_ChatName_WorldDefense = "WorldDefense"
 BlockBlizzChatChannels_ChatName_LookingForGroup = "LookingForGroup"
+BlockBlizzChatChannels_ChatName_HardcoreDeaths = "HardcoreDeaths"
+BlockBlizzChatChannels_ChatName_GuildRecruitment = "GuildRecruitment"
+BlockBlizzChatChannels_ChatName_ChromieTime = "ChromieTime"
 
 
 -- https://wago.tools/db2/ChatChannels
@@ -42,6 +45,7 @@ if (WOW_PROJECT_ID == WOW_PROJECT_MAINLINE) then
 	BlockBlizzChatChannels_ChatName_Services = C_ChatInfo.GetChannelShortcutForChannelID(42)
 	BlockBlizzChatChannels_ChatName_LocalDefense = C_ChatInfo.GetChannelShortcutForChannelID(22)
 	BlockBlizzChatChannels_ChatName_LookingForGroup = C_ChatInfo.GetChannelShortcutForChannelID(26)
+	BlockBlizzChatChannels_ChatName_ChromieTime = C_ChatInfo.GetChannelShortcutForChannelID(38)
 
 end
 
@@ -65,6 +69,8 @@ if (WOW_PROJECT_ID == WOW_PROJECT_CLASSIC) then
 	BlockBlizzChatChannels_ChatName_LocalDefense = C_ChatInfo.GetChannelShortcutForChannelID(22)
 	BlockBlizzChatChannels_ChatName_WorldDefense = C_ChatInfo.GetChannelShortcutForChannelID(23)
 	BlockBlizzChatChannels_ChatName_LookingForGroup = C_ChatInfo.GetChannelShortcutForChannelID(24)
+	BlockBlizzChatChannels_ChatName_HardcoreDeaths = C_ChatInfo.GetChannelShortcutForChannelID(44)
+	BlockBlizzChatChannels_ChatName_GuildRecruitment = C_ChatInfo.GetChannelShortcutForChannelID(25)
 
 end
 
@@ -187,6 +193,69 @@ BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, ar
 			Settings.CreateCheckbox(category, setting, tooltip)
 		end
 		
+		
+		
+		-- HardcoreDeaths and GuildRecruitment are only in Classic Era
+		if (WOW_PROJECT_ID == WOW_PROJECT_CLASSIC) then
+			do
+				local variable = "BlockGuildRecruitment"
+				local name =  string.format(L.BLOCKBLIZZ_OPT_CHECKBOX_NAME, BlockBlizzChatChannels_ChatName_GuildRecruitment)
+				local tooltip = string.format(L.BLOCKBLIZZ_OPT_CHECKBOX_DESC, BlockBlizzChatChannels_ChatName_GuildRecruitment)
+				local defaultValue = false
+				local setting = nil
+				
+
+				setting = Settings.RegisterAddOnSetting(category, variable, variable, BlockBlizzChatChannelsData, type(defaultValue), name, (BlockBlizzChatChannelsData[variable] or defaultValue))
+				
+				
+				Settings.SetOnValueChangedCallback(variable, OnSettingChanged)
+				
+				Settings.CreateCheckbox(category, setting, tooltip)
+			end
+			
+			do
+				local variable = "BlockHardcoreDeaths"
+				local name =  string.format(L.BLOCKBLIZZ_OPT_CHECKBOX_NAME, BlockBlizzChatChannels_ChatName_HardcoreDeaths)
+				local tooltip = string.format(L.BLOCKBLIZZ_OPT_CHECKBOX_DESC, BlockBlizzChatChannels_ChatName_HardcoreDeaths)
+				local defaultValue = false
+				local setting = nil
+				
+
+				setting = Settings.RegisterAddOnSetting(category, variable, variable, BlockBlizzChatChannelsData, type(defaultValue), name, (BlockBlizzChatChannelsData[variable] or defaultValue))
+				
+				
+				Settings.SetOnValueChangedCallback(variable, OnSettingChanged)
+				
+				Settings.CreateCheckbox(category, setting, tooltip)
+			end
+			
+			
+		end
+		
+		
+		
+		-- Chromie Time Channel
+		if (WOW_PROJECT_ID == WOW_PROJECT_MAINLINE) then
+			do
+				local variable = "BlockChromieTime"
+				local name =  string.format(L.BLOCKBLIZZ_OPT_CHECKBOX_NAME, BlockBlizzChatChannels_ChatName_ChromieTime)
+				local tooltip = string.format(L.BLOCKBLIZZ_OPT_CHECKBOX_DESC, BlockBlizzChatChannels_ChatName_ChromieTime)
+				local defaultValue = false
+				local setting = nil
+				
+				setting = Settings.RegisterAddOnSetting(category, variable, variable, BlockBlizzChatChannelsData, type(defaultValue), name, (BlockBlizzChatChannelsData[variable] or defaultValue))
+				
+				
+				Settings.SetOnValueChangedCallback(variable, OnSettingChanged)
+				
+				Settings.CreateCheckbox(category, setting, tooltip)
+			end
+		end
+		
+		
+		
+		
+		
 		do
 			layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(L.BLOCKBLIZZ_OPT_REJOIN_TITLE));
 		end
@@ -215,6 +284,19 @@ BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, ar
 				if (WOW_PROJECT_ID ~= WOW_PROJECT_MAINLINE) then
 					JoinPermanentChannel(BlockBlizzChatChannels_ChatName_WorldDefense)
 					ChatFrame_AddChannel(DEFAULT_CHAT_FRAME, BlockBlizzChatChannels_ChatName_WorldDefense)
+				end
+				
+				if (WOW_PROJECT_ID == WOW_PROJECT_CLASSIC) then
+					JoinPermanentChannel(BlockBlizzChatChannels_ChatName_GuildRecruitment)
+					ChatFrame_AddChannel(DEFAULT_CHAT_FRAME, BlockBlizzChatChannels_ChatName_GuildRecruitment)
+					
+					JoinPermanentChannel(BlockBlizzChatChannels_ChatName_HardcoreDeaths)
+					ChatFrame_AddChannel(DEFAULT_CHAT_FRAME, BlockBlizzChatChannels_ChatName_HardcoreDeaths)					
+				end
+				
+				if (WOW_PROJECT_ID == WOW_PROJECT_MAINLINE) then
+					JoinPermanentChannel(BlockBlizzChatChannels_ChatName_ChromieTime)
+					ChatFrame_AddChannel(DEFAULT_CHAT_FRAME, BlockBlizzChatChannels_ChatName_ChromieTime)
 				end
 				
 				BlockBlizzChatChannels_Frame.CheckForChatBlock()
@@ -281,6 +363,28 @@ function BlockBlizzChatChannels_Frame:CheckForChatBlock()
 		if (BlockBlizzChatChannelsData["BlockServices"] == true) then
 			if (GetChannelName((GetChannelName(BlockBlizzChatChannels_ChatName_Services))) > 0) then
 				LeaveChannelByName(BlockBlizzChatChannels_ChatName_Services)
+			end
+		end
+	end
+	
+	if (WOW_PROJECT_ID == WOW_PROJECT_CLASSIC) then
+		if (BlockBlizzChatChannelsData["BlockGuildRecruitment"] == true) then
+			if (GetChannelName((GetChannelName(BlockBlizzChatChannels_ChatName_GuildRecruitment))) > 0) then
+				LeaveChannelByName(BlockBlizzChatChannels_ChatName_GuildRecruitment)
+			end
+		end
+		
+		if (BlockBlizzChatChannelsData["BlockHardcoreDeaths"] == true) then
+			if (GetChannelName((GetChannelName(BlockBlizzChatChannels_ChatName_HardcoreDeaths))) > 0) then
+				LeaveChannelByName(BlockBlizzChatChannels_ChatName_HardcoreDeaths)
+			end
+		end
+	end
+	
+	if (WOW_PROJECT_ID == WOW_PROJECT_MAINLINE) then
+		if (BlockBlizzChatChannelsData["BlockChromieTime"] == true) then
+			if (GetChannelName((GetChannelName(BlockBlizzChatChannels_ChatName_ChromieTime))) > 0) then
+				LeaveChannelByName(BlockBlizzChatChannels_ChatName_ChromieTime)
 			end
 		end
 	end
