@@ -33,7 +33,7 @@ BlockBlizzChatChannels_ChatName_WorldDefense = "WorldDefense"
 BlockBlizzChatChannels_ChatName_LookingForGroup = "LookingForGroup"
 BlockBlizzChatChannels_ChatName_HardcoreDeaths = "HardcoreDeaths"
 BlockBlizzChatChannels_ChatName_GuildRecruitment = "GuildRecruitment"
-BlockBlizzChatChannels_ChatName_ChromieTime = "ChromieTime"
+--BlockBlizzChatChannels_ChatName_ChromieTime = "ChromieTime"
 
 
 -- https://wago.tools/db2/ChatChannels
@@ -45,7 +45,7 @@ if (WOW_PROJECT_ID == WOW_PROJECT_MAINLINE) then
 	BlockBlizzChatChannels_ChatName_Services = C_ChatInfo.GetChannelShortcutForChannelID(42)
 	BlockBlizzChatChannels_ChatName_LocalDefense = C_ChatInfo.GetChannelShortcutForChannelID(22)
 	BlockBlizzChatChannels_ChatName_LookingForGroup = C_ChatInfo.GetChannelShortcutForChannelID(26)
-	BlockBlizzChatChannels_ChatName_ChromieTime = C_ChatInfo.GetChannelShortcutForChannelID(38)
+	--BlockBlizzChatChannels_ChatName_ChromieTime = C_ChatInfo.GetChannelShortcutForChannelID(38)
 
 end
 
@@ -235,7 +235,7 @@ BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, ar
 		
 		
 		-- Chromie Time Channel
-		if (WOW_PROJECT_ID == WOW_PROJECT_MAINLINE) then
+		--[[if (WOW_PROJECT_ID == WOW_PROJECT_MAINLINE) then
 			do
 				local variable = "BlockChromieTime"
 				local name =  string.format(L.BLOCKBLIZZ_OPT_CHECKBOX_NAME, BlockBlizzChatChannels_ChatName_ChromieTime)
@@ -250,7 +250,7 @@ BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, ar
 				
 				Settings.CreateCheckbox(category, setting, tooltip)
 			end
-		end
+		end]]
 		
 		
 		
@@ -294,10 +294,10 @@ BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, ar
 					ChatFrame_AddChannel(DEFAULT_CHAT_FRAME, BlockBlizzChatChannels_ChatName_HardcoreDeaths)					
 				end
 				
-				if (WOW_PROJECT_ID == WOW_PROJECT_MAINLINE) then
+				--[[if (WOW_PROJECT_ID == WOW_PROJECT_MAINLINE) then
 					JoinPermanentChannel(BlockBlizzChatChannels_ChatName_ChromieTime)
 					ChatFrame_AddChannel(DEFAULT_CHAT_FRAME, BlockBlizzChatChannels_ChatName_ChromieTime)
-				end
+				end]]
 				
 				BlockBlizzChatChannels_Frame.CheckForChatBlock()
 				print(BlockBlizzChatChannels_TextName .. " " .. L.BLOCKBLIZZ_OPT_REJOIN_CHATOUTPUT)
@@ -381,13 +381,13 @@ function BlockBlizzChatChannels_Frame:CheckForChatBlock()
 		end
 	end
 	
-	if (WOW_PROJECT_ID == WOW_PROJECT_MAINLINE) then
+	--[[if (WOW_PROJECT_ID == WOW_PROJECT_MAINLINE) then
 		if (BlockBlizzChatChannelsData["BlockChromieTime"] == true) then
 			if (GetChannelName((GetChannelName(BlockBlizzChatChannels_ChatName_ChromieTime))) > 0) then
 				LeaveChannelByName(BlockBlizzChatChannels_ChatName_ChromieTime)
 			end
 		end
-	end
+	end]]
 
 end
 
