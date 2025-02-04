@@ -12,6 +12,8 @@ This addon allows you to prevent all of your characters on your account from joi
 * LocalDefense Chat
 * WorldDefense Chat (Classic/Era Only)
 * LookingForGroup Chat
+* HardcoreDeaths Chat (Era Only)
+* GuildRecruitment Chat (Era Only)
 
 
 ## Compatibility
