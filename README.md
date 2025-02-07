@@ -40,3 +40,6 @@ Download the latest version from one of the places below, and unzip it in your `
 Ticking a box will take effect immediately, and will affect all of your characters account wide.
 
 You can click the 'Rejoin' button to make your current character join all of the channels that you have not blocked.
+
+## Translations
+* **Russian** by [ZamestoTV](https://github.com/Hubbotu)

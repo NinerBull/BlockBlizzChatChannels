@@ -1,6 +1,7 @@
 ## Interface: 110007, 110100, 40401, 40402, 11506
 ## Title: Block Blizzard Chat Channels
-## Version: 1.0.7
+## Title-ruRU: Блокировать каналы чата Blizzard
+## Version: 1.0.8
 ## Notes: Prevent all characters on your account from joining various default chat channels. /blockblizzchatchannels
 ## Author: ConineSpiritwolf
 ## SavedVariables: BlockBlizzChatChannelsData
@@ -39,7 +40,7 @@ locale/locale.enUS.lua
 # locale/locale.esES.lua
 # locale/locale.zhTW.lua
 # locale/locale.esMX.lua
-# locale/locale.ruRU.lua
+locale/locale.ruRU.lua
 # locale/locale.ptBR.lua
 # locale/locale.itIT.lua
 BlockBlizzChatChannels.lua
