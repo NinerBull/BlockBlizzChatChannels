@@ -50,12 +50,24 @@ if (WOW_PROJECT_ID == WOW_PROJECT_MAINLINE) then
 end
 
 
-if (WOW_PROJECT_ID == WOW_PROJECT_CATACLYSM_CLASSIC or WOW_PROJECT_ID == WOW_PROJECT_WRATH_CLASSIC or WOW_PROJECT_ID == WOW_PROJECT_BURNING_CRUSADE_CLASSIC) then
+if (WOW_PROJECT_ID == WOW_PROJECT_CATACLYSM_CLASSIC) then
 
 	BlockBlizzChatChannels_ChatName_General = C_ChatInfo.GetChannelShortcutForChannelID(1)
 	BlockBlizzChatChannels_ChatName_Trade = C_ChatInfo.GetChannelShortcutForChannelID(2)
 	BlockBlizzChatChannels_ChatName_LocalDefense = C_ChatInfo.GetChannelShortcutForChannelID(22)
 	BlockBlizzChatChannels_ChatName_WorldDefense = C_ChatInfo.GetChannelShortcutForChannelID(23)
+	BlockBlizzChatChannels_ChatName_LookingForGroup = C_ChatInfo.GetChannelShortcutForChannelID(26)
+
+end
+
+
+if (WOW_PROJECT_ID == WOW_PROJECT_WRATH_CLASSIC) then --China Wrath
+
+	BlockBlizzChatChannels_ChatName_General = C_ChatInfo.GetChannelShortcutForChannelID(1)
+	BlockBlizzChatChannels_ChatName_Trade = C_ChatInfo.GetChannelShortcutForChannelID(2)
+	BlockBlizzChatChannels_ChatName_LocalDefense = C_ChatInfo.GetChannelShortcutForChannelID(22)
+	BlockBlizzChatChannels_ChatName_WorldDefense = C_ChatInfo.GetChannelShortcutForChannelID(23)
+	BlockBlizzChatChannels_ChatName_GuildRecruitment = C_ChatInfo.GetChannelShortcutForChannelID(25)
 	BlockBlizzChatChannels_ChatName_LookingForGroup = C_ChatInfo.GetChannelShortcutForChannelID(26)
 
 end
@@ -195,8 +207,8 @@ BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, ar
 		
 		
 		
-		-- HardcoreDeaths and GuildRecruitment are only in Classic Era
-		if (WOW_PROJECT_ID == WOW_PROJECT_CLASSIC) then
+		-- Guild Recuitment is in Classic Era and China Wrath
+		if (WOW_PROJECT_ID == WOW_PROJECT_CLASSIC or WOW_PROJECT_ID == WOW_PROJECT_WRATH_CLASSIC) then
 			do
 				local variable = "BlockGuildRecruitment"
 				local name =  string.format(L.BLOCKBLIZZ_OPT_CHECKBOX_NAME, BlockBlizzChatChannels_ChatName_GuildRecruitment)
@@ -212,7 +224,10 @@ BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, ar
 				
 				Settings.CreateCheckbox(category, setting, tooltip)
 			end
+		end
 			
+		-- HardcoreDeaths is only in Classic Era
+		if (WOW_PROJECT_ID == WOW_PROJECT_CLASSIC) then
 			do
 				local variable = "BlockHardcoreDeaths"
 				local name =  string.format(L.BLOCKBLIZZ_OPT_CHECKBOX_NAME, BlockBlizzChatChannels_ChatName_HardcoreDeaths)
@@ -286,10 +301,12 @@ BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, ar
 					ChatFrame_AddChannel(DEFAULT_CHAT_FRAME, BlockBlizzChatChannels_ChatName_WorldDefense)
 				end
 				
-				if (WOW_PROJECT_ID == WOW_PROJECT_CLASSIC) then
+				if (WOW_PROJECT_ID == WOW_PROJECT_CLASSIC or WOW_PROJECT_ID == WOW_PROJECT_WRATH_CLASSIC) then
 					JoinPermanentChannel(BlockBlizzChatChannels_ChatName_GuildRecruitment)
 					ChatFrame_AddChannel(DEFAULT_CHAT_FRAME, BlockBlizzChatChannels_ChatName_GuildRecruitment)
-					
+				end
+				
+				if (WOW_PROJECT_ID == WOW_PROJECT_CLASSIC) then
 					JoinPermanentChannel(BlockBlizzChatChannels_ChatName_HardcoreDeaths)
 					ChatFrame_AddChannel(DEFAULT_CHAT_FRAME, BlockBlizzChatChannels_ChatName_HardcoreDeaths)					
 				end
@@ -367,13 +384,15 @@ function BlockBlizzChatChannels_Frame:CheckForChatBlock()
 		end
 	end
 	
-	if (WOW_PROJECT_ID == WOW_PROJECT_CLASSIC) then
+	if (WOW_PROJECT_ID == WOW_PROJECT_CLASSIC or WOW_PROJECT_ID == WOW_PROJECT_WRATH_CLASSIC) then
 		if (BlockBlizzChatChannelsData["BlockGuildRecruitment"] == true) then
 			if (GetChannelName((GetChannelName(BlockBlizzChatChannels_ChatName_GuildRecruitment))) > 0) then
 				LeaveChannelByName(BlockBlizzChatChannels_ChatName_GuildRecruitment)
 			end
 		end
+	end
 		
+	if (WOW_PROJECT_ID == WOW_PROJECT_CLASSIC) then
 		if (BlockBlizzChatChannelsData["BlockHardcoreDeaths"] == true) then
 			if (GetChannelName((GetChannelName(BlockBlizzChatChannels_ChatName_HardcoreDeaths))) > 0) then
 				LeaveChannelByName(BlockBlizzChatChannels_ChatName_HardcoreDeaths)
