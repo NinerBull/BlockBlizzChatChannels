@@ -40,49 +40,39 @@ BlockBlizzChatChannels_ChatName_GuildRecruitment = "GuildRecruitment"
 
 if (WOW_PROJECT_ID == WOW_PROJECT_MAINLINE) then
 
-	BlockBlizzChatChannels_ChatName_General = C_ChatInfo.GetChannelShortcutForChannelID(1)
-	BlockBlizzChatChannels_ChatName_Trade = C_ChatInfo.GetChannelShortcutForChannelID(2)
-	BlockBlizzChatChannels_ChatName_Services = C_ChatInfo.GetChannelShortcutForChannelID(42)
-	BlockBlizzChatChannels_ChatName_LocalDefense = C_ChatInfo.GetChannelShortcutForChannelID(22)
-	BlockBlizzChatChannels_ChatName_LookingForGroup = C_ChatInfo.GetChannelShortcutForChannelID(26)
-	--BlockBlizzChatChannels_ChatName_ChromieTime = C_ChatInfo.GetChannelShortcutForChannelID(38)
+	AccWideUI_ChatName_General = C_ChatInfo.GetChannelShortcutForChannelID(1)
+	AccWideUI_ChatName_Trade = C_ChatInfo.GetChannelShortcutForChannelID(2)
+	AccWideUI_ChatName_Services = C_ChatInfo.GetChannelShortcutForChannelID(42)
+	AccWideUI_ChatName_LocalDefense = C_ChatInfo.GetChannelShortcutForChannelID(22)
+	AccWideUI_ChatName_LookingForGroup = C_ChatInfo.GetChannelShortcutForChannelID(26)
 
-end
+elseif (WOW_PROJECT_ID == WOW_PROJECT_CATACLYSM_CLASSIC or WOW_PROJECT_ID == WOW_PROJECT_MISTS_CLASSIC) then
 
+	AccWideUI_ChatName_General = C_ChatInfo.GetChannelShortcutForChannelID(1)
+	AccWideUI_ChatName_Trade = C_ChatInfo.GetChannelShortcutForChannelID(2)
+	AccWideUI_ChatName_LocalDefense = C_ChatInfo.GetChannelShortcutForChannelID(22)
+	AccWideUI_ChatName_WorldDefense = C_ChatInfo.GetChannelShortcutForChannelID(23)
+	AccWideUI_ChatName_LookingForGroup = C_ChatInfo.GetChannelShortcutForChannelID(26)
 
-if (WOW_PROJECT_ID == WOW_PROJECT_CATACLYSM_CLASSIC) then
+elseif (WOW_PROJECT_ID == WOW_PROJECT_WRATH_CLASSIC) then --China Wrath
 
-	BlockBlizzChatChannels_ChatName_General = C_ChatInfo.GetChannelShortcutForChannelID(1)
-	BlockBlizzChatChannels_ChatName_Trade = C_ChatInfo.GetChannelShortcutForChannelID(2)
-	BlockBlizzChatChannels_ChatName_LocalDefense = C_ChatInfo.GetChannelShortcutForChannelID(22)
-	BlockBlizzChatChannels_ChatName_WorldDefense = C_ChatInfo.GetChannelShortcutForChannelID(23)
-	BlockBlizzChatChannels_ChatName_LookingForGroup = C_ChatInfo.GetChannelShortcutForChannelID(26)
+	AccWideUI_ChatName_General = C_ChatInfo.GetChannelShortcutForChannelID(1)
+	AccWideUI_ChatName_Trade = C_ChatInfo.GetChannelShortcutForChannelID(2)
+	AccWideUI_ChatName_LocalDefense = C_ChatInfo.GetChannelShortcutForChannelID(22)
+	AccWideUI_ChatName_WorldDefense = C_ChatInfo.GetChannelShortcutForChannelID(23)
+	AccWideUI_ChatName_GuildRecruitment = C_ChatInfo.GetChannelShortcutForChannelID(25)
+	AccWideUI_ChatName_LookingForGroup = C_ChatInfo.GetChannelShortcutForChannelID(26)
 
-end
+elseif (WOW_PROJECT_ID == WOW_PROJECT_CLASSIC) then
 
-
-if (WOW_PROJECT_ID == WOW_PROJECT_WRATH_CLASSIC) then --China Wrath
-
-	BlockBlizzChatChannels_ChatName_General = C_ChatInfo.GetChannelShortcutForChannelID(1)
-	BlockBlizzChatChannels_ChatName_Trade = C_ChatInfo.GetChannelShortcutForChannelID(2)
-	BlockBlizzChatChannels_ChatName_LocalDefense = C_ChatInfo.GetChannelShortcutForChannelID(22)
-	BlockBlizzChatChannels_ChatName_WorldDefense = C_ChatInfo.GetChannelShortcutForChannelID(23)
-	BlockBlizzChatChannels_ChatName_GuildRecruitment = C_ChatInfo.GetChannelShortcutForChannelID(25)
-	BlockBlizzChatChannels_ChatName_LookingForGroup = C_ChatInfo.GetChannelShortcutForChannelID(26)
-
-end
-
-
-if (WOW_PROJECT_ID == WOW_PROJECT_CLASSIC) then
-
-	BlockBlizzChatChannels_ChatName_General = C_ChatInfo.GetChannelShortcutForChannelID(1)
-	BlockBlizzChatChannels_ChatName_Trade = C_ChatInfo.GetChannelShortcutForChannelID(2)
-	BlockBlizzChatChannels_ChatName_Services = C_ChatInfo.GetChannelShortcutForChannelID(45)
-	BlockBlizzChatChannels_ChatName_LocalDefense = C_ChatInfo.GetChannelShortcutForChannelID(22)
-	BlockBlizzChatChannels_ChatName_WorldDefense = C_ChatInfo.GetChannelShortcutForChannelID(23)
-	BlockBlizzChatChannels_ChatName_LookingForGroup = C_ChatInfo.GetChannelShortcutForChannelID(24)
-	BlockBlizzChatChannels_ChatName_HardcoreDeaths = C_ChatInfo.GetChannelShortcutForChannelID(44)
-	BlockBlizzChatChannels_ChatName_GuildRecruitment = C_ChatInfo.GetChannelShortcutForChannelID(25)
+	AccWideUI_ChatName_General = C_ChatInfo.GetChannelShortcutForChannelID(1)
+	AccWideUI_ChatName_Trade = C_ChatInfo.GetChannelShortcutForChannelID(2)
+	AccWideUI_ChatName_Services = C_ChatInfo.GetChannelShortcutForChannelID(45)
+	AccWideUI_ChatName_LocalDefense = C_ChatInfo.GetChannelShortcutForChannelID(22)
+	AccWideUI_ChatName_WorldDefense = C_ChatInfo.GetChannelShortcutForChannelID(23)
+	AccWideUI_ChatName_LookingForGroup = C_ChatInfo.GetChannelShortcutForChannelID(24)
+	AccWideUI_ChatName_HardcoreDeaths = C_ChatInfo.GetChannelShortcutForChannelID(44)
+	AccWideUI_ChatName_GuildRecruitment = C_ChatInfo.GetChannelShortcutForChannelID(25)
 
 end
 
