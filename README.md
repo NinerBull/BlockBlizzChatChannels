@@ -17,8 +17,8 @@ This addon allows you to prevent all of your characters on your account from joi
 
 
 ## Compatibility
-* **The War Within** - 11.1.5
-* **Cataclysm Classic** - 4.4.2
+* **The War Within** - 11.1.7
+* **MoP Classic** - 5.5.0
 * **Classic Era** - 1.15.7
 
 
