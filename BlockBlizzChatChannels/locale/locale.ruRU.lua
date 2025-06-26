@@ -19,4 +19,6 @@ if (GetLocale() == "ruRU") then
 	
 	L.BLOCKBLIZZ_ADCOM_CURRENT = "Текущие настройки:"
 	L.BLOCKBLIZZ_ADCOM_CHANGE = "Нажмите, чтобы изменить настройки."
+	
+	L.BLOCKBLIZZ_LEAVING_CHANNEL = "Автоматический выход из чат-канала «%s». Введите %s для настройки."
 end

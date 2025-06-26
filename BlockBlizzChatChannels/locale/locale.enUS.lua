@@ -20,4 +20,6 @@ local _, L = ...;
 	L.BLOCKBLIZZ_ADCOM_CURRENT = "Current Settings:"
 	L.BLOCKBLIZZ_ADCOM_CHANGE = "Click to change settings."
 	
+	L.BLOCKBLIZZ_LEAVING_CHANNEL = "Automatically leaving the %s Channel. Type %s to configure."
+	
 --end

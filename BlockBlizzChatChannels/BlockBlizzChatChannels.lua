@@ -337,24 +337,28 @@ function BlockBlizzChatChannels_Frame:CheckForChatBlock()
 	if (BlockBlizzChatChannelsData["BlockGeneral"] == true) then
 		if (GetChannelName((GetChannelName(BlockBlizzChatChannels_ChatName_General))) > 0) then
 			LeaveChannelByName(BlockBlizzChatChannels_ChatName_General)
+			print(BlockBlizzChatChannels_TextName .. " " ..  string.format(L.BLOCKBLIZZ_LEAVING_CHANNEL, BlockBlizzChatChannels_ChatName_General, BlockBlizzChatChannels_TextSlash))
 		end
 	end
 	
 	if (BlockBlizzChatChannelsData["BlockLocalDefense"] == true) then
 		if (GetChannelName((GetChannelName(BlockBlizzChatChannels_ChatName_LocalDefense))) > 0) then
 			LeaveChannelByName(BlockBlizzChatChannels_ChatName_LocalDefense)
+			print(BlockBlizzChatChannels_TextName .. " " ..  string.format(L.BLOCKBLIZZ_LEAVING_CHANNEL, BlockBlizzChatChannels_ChatName_LocalDefense, BlockBlizzChatChannels_TextSlash))
 		end
 	end
 	
 	if (BlockBlizzChatChannelsData["BlockTrade"] == true) then
 		if (GetChannelName((GetChannelName(BlockBlizzChatChannels_ChatName_Trade))) > 0) then
 			LeaveChannelByName(BlockBlizzChatChannels_ChatName_Trade)
+			print(BlockBlizzChatChannels_TextName .. " " ..  string.format(L.BLOCKBLIZZ_LEAVING_CHANNEL, BlockBlizzChatChannels_ChatName_Trade, BlockBlizzChatChannels_TextSlash))
 		end
 	end
 	
 	if (BlockBlizzChatChannelsData["BlockLookingForGroup"] == true) then
 		if (GetChannelName((GetChannelName(BlockBlizzChatChannels_ChatName_LookingForGroup))) > 0) then
 			LeaveChannelByName(BlockBlizzChatChannels_ChatName_LookingForGroup)
+			print(BlockBlizzChatChannels_TextName .. " " ..  string.format(L.BLOCKBLIZZ_LEAVING_CHANNEL, BlockBlizzChatChannels_ChatName_LookingForGroup, BlockBlizzChatChannels_TextSlash))
 		end
 	end
 	
@@ -362,6 +366,7 @@ function BlockBlizzChatChannels_Frame:CheckForChatBlock()
 		if (BlockBlizzChatChannelsData["BlockWorldDefense"] == true) then
 			if (GetChannelName((GetChannelName(BlockBlizzChatChannels_ChatName_WorldDefense))) > 0) then
 				LeaveChannelByName(BlockBlizzChatChannels_ChatName_WorldDefense)
+				print(BlockBlizzChatChannels_TextName .. " " ..  string.format(L.BLOCKBLIZZ_LEAVING_CHANNEL, BlockBlizzChatChannels_ChatName_WorldDefense, BlockBlizzChatChannels_TextSlash))
 			end
 		end
 	end
@@ -370,6 +375,7 @@ function BlockBlizzChatChannels_Frame:CheckForChatBlock()
 		if (BlockBlizzChatChannelsData["BlockServices"] == true) then
 			if (GetChannelName((GetChannelName(BlockBlizzChatChannels_ChatName_Services))) > 0) then
 				LeaveChannelByName(BlockBlizzChatChannels_ChatName_Services)
+				print(BlockBlizzChatChannels_TextName .. " " ..  string.format(L.BLOCKBLIZZ_LEAVING_CHANNEL, BlockBlizzChatChannels_ChatName_Services, BlockBlizzChatChannels_TextSlash))
 			end
 		end
 	end
@@ -378,6 +384,7 @@ function BlockBlizzChatChannels_Frame:CheckForChatBlock()
 		if (BlockBlizzChatChannelsData["BlockGuildRecruitment"] == true) then
 			if (GetChannelName((GetChannelName(BlockBlizzChatChannels_ChatName_GuildRecruitment))) > 0) then
 				LeaveChannelByName(BlockBlizzChatChannels_ChatName_GuildRecruitment)
+				print(BlockBlizzChatChannels_TextName .. " " ..  string.format(L.BLOCKBLIZZ_LEAVING_CHANNEL, BlockBlizzChatChannels_ChatName_GuildRecruitment, BlockBlizzChatChannels_TextSlash))
 			end
 		end
 	end
@@ -386,18 +393,10 @@ function BlockBlizzChatChannels_Frame:CheckForChatBlock()
 		if (BlockBlizzChatChannelsData["BlockHardcoreDeaths"] == true) then
 			if (GetChannelName((GetChannelName(BlockBlizzChatChannels_ChatName_HardcoreDeaths))) > 0) then
 				LeaveChannelByName(BlockBlizzChatChannels_ChatName_HardcoreDeaths)
+				print(BlockBlizzChatChannels_TextName .. " " ..  string.format(L.BLOCKBLIZZ_LEAVING_CHANNEL, BlockBlizzChatChannels_ChatName_HardcoreDeaths, BlockBlizzChatChannels_TextSlash))
 			end
 		end
 	end
-	
-	--[[if (WOW_PROJECT_ID == WOW_PROJECT_MAINLINE) then
-		if (BlockBlizzChatChannelsData["BlockChromieTime"] == true) then
-			if (GetChannelName((GetChannelName(BlockBlizzChatChannels_ChatName_ChromieTime))) > 0) then
-				LeaveChannelByName(BlockBlizzChatChannels_ChatName_ChromieTime)
-			end
-		end
-	end]]
-
 end
 
 
