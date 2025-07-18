@@ -1,4 +1,4 @@
-## Interface: 110200, 110107, 50500, 30404, 11508, 11507
+## Interface: 110200, 110107, 50500, 30405, 11507
 ## Title: Block Blizzard Chat Channels
 ## Title-ruRU: Блокировать каналы чата Blizzard
 ## Version: 1.0.11
