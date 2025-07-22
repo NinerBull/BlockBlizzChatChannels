@@ -1,0 +1,13 @@
+package-as: BlockBlizzChatChannels
+
+manual-changelog:
+  filename: CHANGELOG.md
+  markup-type: markdown
+	
+ignore:
+  - *.md
+  - LICENSE
+  - .pkgmeta
+  
+move-folders:
+  BlockBlizzChatChannels/BlockBlizzChatChannels: BlockBlizzChatChannels
