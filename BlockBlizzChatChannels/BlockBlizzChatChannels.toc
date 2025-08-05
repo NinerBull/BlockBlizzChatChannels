@@ -1,7 +1,7 @@
-## Interface: 110200, 110107, 50500, 30405, 11507
+## Interface: 110200, 50500, 30405, 11507
 ## Title: Block Blizzard Chat Channels
 ## Title-ruRU: Блокировать каналы чата Blizzard
-## Version: 1.0.11
+## Version: @project-version@
 ## Notes: Prevent all characters on your account from joining various default chat channels. /blockblizzchatchannels
 ## Author: ConineSpiritwolf
 ## SavedVariables: BlockBlizzChatChannelsData
