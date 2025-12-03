@@ -250,35 +250,67 @@ BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, ar
 		do
 			local function OnButtonClick()
 				JoinPermanentChannel(BlockBlizzChatChannels_Frame.ChatChannelNames.General)
-				ChatFrame_AddChannel(DEFAULT_CHAT_FRAME, BlockBlizzChatChannels_Frame.ChatChannelNames.General) -- 12.0.0 ChatFrameMixin.AddChannel 
+				if (ChatFrame_AddChannel) then
+					ChatFrame_AddChannel(DEFAULT_CHAT_FRAME, BlockBlizzChatChannels_Frame.ChatChannelNames.General)
+				else
+					ChatFrameMixin.AddChannel(DEFAULT_CHAT_FRAME, BlockBlizzChatChannels_Frame.ChatChannelNames.General) -- 12.0.0
+				end
 				
 				JoinPermanentChannel(BlockBlizzChatChannels_Frame.ChatChannelNames.LocalDefense)
-				ChatFrame_AddChannel(DEFAULT_CHAT_FRAME, BlockBlizzChatChannels_Frame.ChatChannelNames.LocalDefense) -- 12.0.0 ChatFrameMixin.AddChannel
+				if (ChatFrame_AddChannel) then
+					ChatFrame_AddChannel(DEFAULT_CHAT_FRAME, BlockBlizzChatChannels_Frame.ChatChannelNames.LocalDefense)
+				else
+					ChatFrameMixin.AddChannel(DEFAULT_CHAT_FRAME, BlockBlizzChatChannels_Frame.ChatChannelNames.LocalDefense) -- 12.0.0
+				end
 				
 				JoinPermanentChannel(BlockBlizzChatChannels_Frame.ChatChannelNames.Trade)
-				ChatFrame_AddChannel(DEFAULT_CHAT_FRAME, BlockBlizzChatChannels_Frame.ChatChannelNames.Trade) -- 12.0.0 ChatFrameMixin.AddChannel
+				if (ChatFrame_AddChannel) then
+					ChatFrame_AddChannel(DEFAULT_CHAT_FRAME, BlockBlizzChatChannels_Frame.ChatChannelNames.Trade)
+				else
+					ChatFrameMixin.AddChannel(DEFAULT_CHAT_FRAME, BlockBlizzChatChannels_Frame.ChatChannelNames.Trade) -- 12.0.0
+				end
 				
 				JoinPermanentChannel(BlockBlizzChatChannels_Frame.ChatChannelNames.LookingForGroup)
-				ChatFrame_AddChannel(DEFAULT_CHAT_FRAME, BlockBlizzChatChannels_Frame.ChatChannelNames.LookingForGroup) -- 12.0.0 ChatFrameMixin.AddChannel
+				if (ChatFrame_AddChannel) then
+					ChatFrame_AddChannel(DEFAULT_CHAT_FRAME, BlockBlizzChatChannels_Frame.ChatChannelNames.LookingForGroup)
+				else
+					ChatFrameMixin.AddChannel(DEFAULT_CHAT_FRAME, BlockBlizzChatChannels_Frame.ChatChannelNames.LookingForGroup) -- 12.0.0
+				end
 				
 				if (WOW_PROJECT_ID == WOW_PROJECT_MAINLINE or WOW_PROJECT_ID == WOW_PROJECT_CLASSIC) then
 					JoinPermanentChannel(BlockBlizzChatChannels_Frame.ChatChannelNames.Services)
-					ChatFrame_AddChannel(DEFAULT_CHAT_FRAME, BlockBlizzChatChannels_Frame.ChatChannelNames.Services) -- 12.0.0 ChatFrameMixin.AddChannel
+					if (ChatFrame_AddChannel) then
+						ChatFrame_AddChannel(DEFAULT_CHAT_FRAME, BlockBlizzChatChannels_Frame.ChatChannelNames.Services)
+					else
+						ChatFrameMixin.AddChannel(DEFAULT_CHAT_FRAME, BlockBlizzChatChannels_Frame.ChatChannelNames.Services) -- 12.0.0
+					end
 				end
 				
 				if (WOW_PROJECT_ID ~= WOW_PROJECT_MAINLINE) then
 					JoinPermanentChannel(BlockBlizzChatChannels_Frame.ChatChannelNames.WorldDefense)
-					ChatFrame_AddChannel(DEFAULT_CHAT_FRAME, BlockBlizzChatChannels_Frame.ChatChannelNames.WorldDefense) -- 12.0.0 ChatFrameMixin.AddChannel
+					if (ChatFrame_AddChannel) then
+						ChatFrame_AddChannel(DEFAULT_CHAT_FRAME, BlockBlizzChatChannels_Frame.ChatChannelNames.WorldDefense)
+					else
+						ChatFrameMixin.AddChannel(DEFAULT_CHAT_FRAME, BlockBlizzChatChannels_Frame.ChatChannelNames.WorldDefense) -- 12.0.0
+					end
 				end
 				
 				if (WOW_PROJECT_ID == WOW_PROJECT_CLASSIC or WOW_PROJECT_ID == WOW_PROJECT_WRATH_CLASSIC) then
 					JoinPermanentChannel(BlockBlizzChatChannels_Frame.ChatChannelNames.GuildRecruitment)
-					ChatFrame_AddChannel(DEFAULT_CHAT_FRAME, BlockBlizzChatChannels_Frame.ChatChannelNames.GuildRecruitment) -- 12.0.0 ChatFrameMixin.AddChannel
+					if (ChatFrame_AddChannel) then
+						ChatFrame_AddChannel(DEFAULT_CHAT_FRAME, BlockBlizzChatChannels_Frame.ChatChannelNames.GuildRecruitment)
+					else
+						ChatFrameMixin.AddChannel(DEFAULT_CHAT_FRAME, BlockBlizzChatChannels_Frame.ChatChannelNames.GuildRecruitment) -- 12.0.0
+					end
 				end
 				
 				if (WOW_PROJECT_ID == WOW_PROJECT_CLASSIC) then
 					JoinPermanentChannel(BlockBlizzChatChannels_Frame.ChatChannelNames.HardcoreDeaths)
-					ChatFrame_AddChannel(DEFAULT_CHAT_FRAME, BlockBlizzChatChannels_Frame.ChatChannelNames.HardcoreDeaths) -- 12.0.0 ChatFrameMixin.AddChannel					
+					if (ChatFrame_AddChannel) then
+						ChatFrame_AddChannel(DEFAULT_CHAT_FRAME, BlockBlizzChatChannels_Frame.ChatChannelNames.HardcoreDeaths)
+					else
+						ChatFrameMixin.AddChannel(DEFAULT_CHAT_FRAME, BlockBlizzChatChannels_Frame.ChatChannelNames.HardcoreDeaths) -- 12.0.0
+					end				
 				end
 								
 				BlockBlizzChatChannels_Frame.CheckForChatBlock()

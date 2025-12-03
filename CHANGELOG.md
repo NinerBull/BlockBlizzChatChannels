@@ -1,1 +1,2 @@
-- Updated TOC for 11.2.7, 5.5.2 and 1.15.8
+- Fixed Compatibility with 11.2.7
+- Updated TOC for 12.0.0, 5.5.3 and 2.5.5
