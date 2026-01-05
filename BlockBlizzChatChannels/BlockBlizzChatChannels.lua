@@ -92,7 +92,7 @@ BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, ar
 		-- Using the new style of options menu for this!
 		local category, layout = Settings.RegisterVerticalLayoutCategory(L.BLOCKBLIZZ_ADDONNAME)
 		
-		BlockBlizzChatChannels_OptionsPanelFrameCategoryID = category:GetID()
+		BlockBlizzChatChannels_Frame.OptionsPanelFrameCategoryID = category:GetID()
 
 		do
 			layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(L.BLOCKBLIZZ_OPT_TITLE, L.BLOCKBLIZZ_OPT_TITLE_DESC));
@@ -327,7 +327,7 @@ BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, ar
 		SLASH_BLOCKBLIZZCHATCHANNELS1 = "/blockblizzchatchannels"
 		SLASH_BLOCKBLIZZCHATCHANNELS2 = "/blockchatchannels"
 		function SlashCmdList.BLOCKBLIZZCHATCHANNELS(msg)
-			Settings.OpenToCategory(BlockBlizzChatChannels_OptionsPanelFrameCategoryID)
+			Settings.OpenToCategory(BlockBlizzChatChannels_Frame.OptionsPanelFrameCategoryID)
 		end
 		
 	end
@@ -418,50 +418,57 @@ end
 
 
 
---Addon Compartment Stuff
-local BlockBlizzChatChannels_Tooltip
+--Addon Compartment
+if (AddonCompartmentFrame) then
 
-function BlockBlizzChatChannels_CompartmentClick(addonName, buttonName)
-	Settings.OpenToCategory(BlockBlizzChatChannels_OptionsPanelFrameCategoryID)
-end
+	AddonCompartmentFrame:RegisterAddon({
+		text = C_AddOns.GetAddOnMetadata("BlockBlizzChatChannels", "Title"),
+		icon = C_AddOns.GetAddOnMetadata("BlockBlizzChatChannels", "IconTexture"),
+		notCheckable = true,
+		
+		func = function(button)
+			Settings.OpenToCategory(BlockBlizzChatChannels_Frame.OptionsPanelFrameCategoryID)
+		end,
+		
+		funcOnEnter = function(button)
+			if (not BlockBlizzChatChannels_Frame.Tooltip) then
+				BlockBlizzChatChannels_Frame.Tooltip = CreateFrame("GameTooltip", "BlockBlizzChatChannels_Frame.Tooltip_Compartment", UIParent, "GameTooltipTemplate")
+			end
+			
+			local classColorString = C_ClassColor.GetClassColor(UnitClass("player")) or NORMAL_FONT_COLOR
+			
+			BlockBlizzChatChannels_Frame.Tooltip:SetOwner(button, "ANCHOR_LEFT");
+			BlockBlizzChatChannels_Frame.Tooltip:SetText(L.BLOCKBLIZZ_ADDONNAME_SHORT)
+			
+			BlockBlizzChatChannels_Frame.Tooltip:AddLine(" ")
+			BlockBlizzChatChannels_Frame.Tooltip:AddLine(L.BLOCKBLIZZ_ADCOM_CURRENT,  WHITE_FONT_COLOR.r, WHITE_FONT_COLOR.g, WHITE_FONT_COLOR.b)
+			BlockBlizzChatChannels_Frame.Tooltip:AddLine(" ")
+			
+			BlockBlizzChatChannels_Frame.Tooltip:AddDoubleLine(string.format(L.BLOCKBLIZZ_OPT_CHECKBOX_NAME, BlockBlizzChatChannels_Frame.ChatChannelNames.General) .. ":", BlockBlizzChatChannels_Frame:IsChatBlockActive("BlockGeneral"), nil, nil, nil,  WHITE_FONT_COLOR.r, WHITE_FONT_COLOR.g, WHITE_FONT_COLOR.b)
+			
+			BlockBlizzChatChannels_Frame.Tooltip:AddDoubleLine(string.format(L.BLOCKBLIZZ_OPT_CHECKBOX_NAME, BlockBlizzChatChannels_Frame.ChatChannelNames.Trade) .. ":", BlockBlizzChatChannels_Frame:IsChatBlockActive("BlockTrade"), nil, nil, nil,  WHITE_FONT_COLOR.r, WHITE_FONT_COLOR.g, WHITE_FONT_COLOR.b)
+			
+			if (WOW_PROJECT_ID == WOW_PROJECT_MAINLINE or WOW_PROJECT_ID == WOW_PROJECT_CLASSIC) then
+				BlockBlizzChatChannels_Frame.Tooltip:AddDoubleLine(string.format(L.BLOCKBLIZZ_OPT_CHECKBOX_NAME, BlockBlizzChatChannels_Frame.ChatChannelNames.Services) .. ":", BlockBlizzChatChannels_Frame:IsChatBlockActive("BlockServices"), nil, nil, nil,  WHITE_FONT_COLOR.r, WHITE_FONT_COLOR.g, WHITE_FONT_COLOR.b)
+			end
+			
+			BlockBlizzChatChannels_Frame.Tooltip:AddDoubleLine(string.format(L.BLOCKBLIZZ_OPT_CHECKBOX_NAME, BlockBlizzChatChannels_Frame.ChatChannelNames.LocalDefense) .. ":", BlockBlizzChatChannels_Frame:IsChatBlockActive("BlockLocalDefense"), nil, nil, nil,  WHITE_FONT_COLOR.r, WHITE_FONT_COLOR.g, WHITE_FONT_COLOR.b)
+			
+			if (WOW_PROJECT_ID ~= WOW_PROJECT_MAINLINE) then
+				BlockBlizzChatChannels_Frame.Tooltip:AddDoubleLine(string.format(L.BLOCKBLIZZ_OPT_CHECKBOX_NAME, BlockBlizzChatChannels_Frame.ChatChannelNames.WorldDefense) .. ":", BlockBlizzChatChannels_Frame:IsChatBlockActive("BlockWorldDefense"), nil, nil, nil,  WHITE_FONT_COLOR.r, WHITE_FONT_COLOR.g, WHITE_FONT_COLOR.b)
+			end
+			
+			BlockBlizzChatChannels_Frame.Tooltip:AddDoubleLine(string.format(L.BLOCKBLIZZ_OPT_CHECKBOX_NAME, BlockBlizzChatChannels_Frame.ChatChannelNames.LookingForGroup) .. ":", BlockBlizzChatChannels_Frame:IsChatBlockActive("BlockLookingForGroup"), nil, nil, nil,  WHITE_FONT_COLOR.r, WHITE_FONT_COLOR.g, WHITE_FONT_COLOR.b)
+			
+			BlockBlizzChatChannels_Frame.Tooltip:AddLine(" ")
+			BlockBlizzChatChannels_Frame.Tooltip:AddLine(L.BLOCKBLIZZ_ADCOM_CHANGE,  GREEN_FONT_COLOR.r, GREEN_FONT_COLOR.g, GREEN_FONT_COLOR.b)
+			
+			BlockBlizzChatChannels_Frame.Tooltip:Show()
+		end,
+		
+		funcOnLeave = function(button)
+			BlockBlizzChatChannels_Frame.Tooltip:Hide()
+		end,
+	})
 
--- Create a tooltip when hovering over the Addon Compartment option
-function BlockBlizzChatChannels_CompartmentHover(addonName, buttonName)
-	if (not BlockBlizzChatChannels_Tooltip) then
-		BlockBlizzChatChannels_Tooltip = CreateFrame("GameTooltip", "BlockBlizzChatChannels_Tooltip_Compartment", UIParent, "GameTooltipTemplate")
-	end
-	
-	local classColorString = C_ClassColor.GetClassColor(UnitClass("player")) or NORMAL_FONT_COLOR
-	
-	BlockBlizzChatChannels_Tooltip:SetOwner(buttonName, "ANCHOR_LEFT");
-	BlockBlizzChatChannels_Tooltip:SetText(L.BLOCKBLIZZ_ADDONNAME_SHORT)
-	
-	BlockBlizzChatChannels_Tooltip:AddLine(" ")
-	BlockBlizzChatChannels_Tooltip:AddLine(L.BLOCKBLIZZ_ADCOM_CURRENT,  WHITE_FONT_COLOR.r, WHITE_FONT_COLOR.g, WHITE_FONT_COLOR.b)
-	BlockBlizzChatChannels_Tooltip:AddLine(" ")
-	
-	BlockBlizzChatChannels_Tooltip:AddDoubleLine(string.format(L.BLOCKBLIZZ_OPT_CHECKBOX_NAME, BlockBlizzChatChannels_Frame.ChatChannelNames.General) .. ":", BlockBlizzChatChannels_Frame:IsChatBlockActive("BlockGeneral"), nil, nil, nil,  WHITE_FONT_COLOR.r, WHITE_FONT_COLOR.g, WHITE_FONT_COLOR.b)
-	
-	BlockBlizzChatChannels_Tooltip:AddDoubleLine(string.format(L.BLOCKBLIZZ_OPT_CHECKBOX_NAME, BlockBlizzChatChannels_Frame.ChatChannelNames.Trade) .. ":", BlockBlizzChatChannels_Frame:IsChatBlockActive("BlockTrade"), nil, nil, nil,  WHITE_FONT_COLOR.r, WHITE_FONT_COLOR.g, WHITE_FONT_COLOR.b)
-	
-	if (WOW_PROJECT_ID == WOW_PROJECT_MAINLINE or WOW_PROJECT_ID == WOW_PROJECT_CLASSIC) then
-		BlockBlizzChatChannels_Tooltip:AddDoubleLine(string.format(L.BLOCKBLIZZ_OPT_CHECKBOX_NAME, BlockBlizzChatChannels_Frame.ChatChannelNames.Services) .. ":", BlockBlizzChatChannels_Frame:IsChatBlockActive("BlockServices"), nil, nil, nil,  WHITE_FONT_COLOR.r, WHITE_FONT_COLOR.g, WHITE_FONT_COLOR.b)
-	end
-	
-	BlockBlizzChatChannels_Tooltip:AddDoubleLine(string.format(L.BLOCKBLIZZ_OPT_CHECKBOX_NAME, BlockBlizzChatChannels_Frame.ChatChannelNames.LocalDefense) .. ":", BlockBlizzChatChannels_Frame:IsChatBlockActive("BlockLocalDefense"), nil, nil, nil,  WHITE_FONT_COLOR.r, WHITE_FONT_COLOR.g, WHITE_FONT_COLOR.b)
-	
-	if (WOW_PROJECT_ID ~= WOW_PROJECT_MAINLINE) then
-		BlockBlizzChatChannels_Tooltip:AddDoubleLine(string.format(L.BLOCKBLIZZ_OPT_CHECKBOX_NAME, BlockBlizzChatChannels_Frame.ChatChannelNames.WorldDefense) .. ":", BlockBlizzChatChannels_Frame:IsChatBlockActive("BlockWorldDefense"), nil, nil, nil,  WHITE_FONT_COLOR.r, WHITE_FONT_COLOR.g, WHITE_FONT_COLOR.b)
-	end
-	
-	BlockBlizzChatChannels_Tooltip:AddDoubleLine(string.format(L.BLOCKBLIZZ_OPT_CHECKBOX_NAME, BlockBlizzChatChannels_Frame.ChatChannelNames.LookingForGroup) .. ":", BlockBlizzChatChannels_Frame:IsChatBlockActive("BlockLookingForGroup"), nil, nil, nil,  WHITE_FONT_COLOR.r, WHITE_FONT_COLOR.g, WHITE_FONT_COLOR.b)
-	
-	BlockBlizzChatChannels_Tooltip:AddLine(" ")
-	BlockBlizzChatChannels_Tooltip:AddLine(L.BLOCKBLIZZ_ADCOM_CHANGE,  GREEN_FONT_COLOR.r, GREEN_FONT_COLOR.g, GREEN_FONT_COLOR.b)
-	
-	BlockBlizzChatChannels_Tooltip:Show()
-end
-
-function BlockBlizzChatChannels_CompartmentLeave(buttonName)
-	BlockBlizzChatChannels_Tooltip:Hide()
 end
