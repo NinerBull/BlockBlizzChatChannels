@@ -1,2 +1,1 @@
-- Fixed Compatibility with 11.2.7
-- Updated TOC for 12.0.0, 5.5.3 and 2.5.5
+- TBC Classic Anniversary Compatibility Fixes
