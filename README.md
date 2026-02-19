@@ -1,5 +1,5 @@
 # Block Blizzard Chat Channels
-An addon for World of Warcraft - The War Within, MoP Classic and Classic Era!
+An addon for World of Warcraft!
 
 ![Info Img](https://cdn-wow.mmoui.com/preview/pvw76437.jpg)
 
@@ -17,7 +17,7 @@ This addon allows you to prevent all of your characters on your account from joi
 
 
 ## Compatibility
-* **The War Within** - 12.0.0
+* **Midnight** - 12.0.0
 * **MoP Classic** - 5.5.3
 * **TBC Classic** - 2.5.5
 * **Classic Era** - 1.15.8
