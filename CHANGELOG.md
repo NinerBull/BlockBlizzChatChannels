@@ -1,1 +1,1 @@
-- TBC Classic Anniversary Compatibility Fixes
+- Updated TOC for 12.0.5.
