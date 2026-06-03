@@ -54,6 +54,7 @@ elseif (WOW_PROJECT_ID == WOW_PROJECT_MISTS_CLASSIC) then
 	BlockBlizzChatChannels_Frame.ChatChannelNames.LocalDefense = C_ChatInfo.GetChannelShortcutForChannelID(22)
 	BlockBlizzChatChannels_Frame.ChatChannelNames.WorldDefense = C_ChatInfo.GetChannelShortcutForChannelID(23)
 	BlockBlizzChatChannels_Frame.ChatChannelNames.LookingForGroup = C_ChatInfo.GetChannelShortcutForChannelID(26)
+	BlockBlizzChatChannels_Frame.ChatChannelNames.Services = C_ChatInfo.GetChannelShortcutForChannelID(45)
 
 elseif (WOW_PROJECT_ID == WOW_PROJECT_WRATH_CLASSIC) then --Wrath
 
@@ -141,6 +142,7 @@ BlockBlizzChatChannels_Frame:SetScript("OnEvent", function(self, event, arg1, ar
 		-- Services channel only exists in Retail and 20th Anniversary Classic 
 		if (WOW_PROJECT_ID == WOW_PROJECT_MAINLINE 
 		or WOW_PROJECT_ID == WOW_PROJECT_BURNING_CRUSADE_CLASSIC
+		or WOW_PROJECT_ID == WOW_PROJECT_MISTS_CLASSIC
 		or WOW_PROJECT_ID == WOW_PROJECT_CLASSIC) then
 			do
 				local variable = "BlockServices"
