@@ -1,2 +1,2 @@
-- Services Channel can now be blocked in MoP Classic
-- Update TOC for 12.0.7 and 5.5.4
+- Minor Code Refactor
+- Update TOC for 2.5.6
