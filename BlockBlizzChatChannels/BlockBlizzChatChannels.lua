@@ -33,7 +33,7 @@ BlockBlizzChatChannels_Frame.ChatChannelNames = {}
 
 -- https://wago.tools/db2/ChatChannels
 
-if (BlockBlizzChatChannels_Frame:GetInterfaceVersion() >= 120001) then -- (WOW_PROJECT_ID == WOW_PROJECT_MAINLINE)
+if (WOW_PROJECT_ID == WOW_PROJECT_MAINLINE) then -- Retail
 
 	BlockBlizzChatChannels_Frame.ChatChannelNames.General = C_ChatInfo.GetChannelShortcutForChannelID(1)
 	BlockBlizzChatChannels_Frame.ChatChannelNames.Trade = C_ChatInfo.GetChannelShortcutForChannelID(2)
@@ -41,7 +41,7 @@ if (BlockBlizzChatChannels_Frame:GetInterfaceVersion() >= 120001) then -- (WOW_P
 	BlockBlizzChatChannels_Frame.ChatChannelNames.LocalDefense = C_ChatInfo.GetChannelShortcutForChannelID(22)
 	BlockBlizzChatChannels_Frame.ChatChannelNames.LookingForGroup = C_ChatInfo.GetChannelShortcutForChannelID(26)
 	
-elseif (BlockBlizzChatChannels_Frame:GetInterfaceVersion() >= 16001 and BlockBlizzChatChannels_Frame:GetInterfaceVersion() < 20000) then --  Forever
+elseif (WOW_PROJECT_ID == WOW_PROJECT_CAMELOT) then --  Forever
 
 	BlockBlizzChatChannels_Frame.ChatChannelNames.General = C_ChatInfo.GetChannelShortcutForChannelID(1)
 	BlockBlizzChatChannels_Frame.ChatChannelNames.Trade = C_ChatInfo.GetChannelShortcutForChannelID(2)
