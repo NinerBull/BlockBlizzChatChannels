@@ -384,6 +384,10 @@ function BlockBlizzChatChannels_Frame:CheckForChatBlock()
 	if (C_ChatInfo and C_ChatInfo.InChatMessagingLockdown and C_ChatInfo.InChatMessagingLockdown()) then
 		return
 	end
+	
+	if (IsInInstance()) then
+		return
+	end
 
 	if (BlockBlizzChatChannels_Frame.ChatChannelNames.General and BlockBlizzChatChannelsData["BlockGeneral"] == true) then
 		if (GetChannelName((GetChannelName(BlockBlizzChatChannels_Frame.ChatChannelNames.General))) > 0) then
