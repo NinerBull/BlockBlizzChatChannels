@@ -17,9 +17,10 @@ This addon allows you to prevent all of your characters on your account from joi
 
 
 ## Compatibility
-* **Midnight** - 12.1.0
+* **Midnight** - 12.1.5
 * **MoP Classic** - 5.5.4
 * **TBC Classic** - 2.5.6
+* **Forever** - 1.60.1
 * **Classic Era** - 1.15.9
 
 
